@@ -1,0 +1,166 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "projects": "Projects",
+    "getQuote": "Get a Quote",
+    "learnMore": "Learn More",
+    "ourServices": "Our Services",
+    "aboutService": "About Our {{service}} Service",
+    "benefits": "Key Benefits",
+    "ourProcess": "Our Process",
+    "step": "Step"
+  },
+  "languageModal": {
+    "selectLanguage": "Select Your Language",
+    "welcomeMessage": "Welcome! Please select your preferred language.",
+    "chooseLangPrompt": "Choose your language:",
+    "savePreference": "Save Preference"
+  },
+  "languages": {
+    "en": "English",
+    "hi": "Hindi"
+  },
+  "contact": {
+    "title": "Get in Touch with Shriejan Infraa",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your full name",
+      "mobile": "Mobile Number",
+      "mobilePlaceholder": "Enter your mobile number",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email (optional)",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "message": "Message / Other Information",
+      "messagePlaceholder": "Tell us more about your needs or project...",
+      "validation": {
+        "nameRequired": "Name is required.",
+        "mobileRequired": "Mobile number is required.",
+        "mobileInvalid": "Please enter a valid 10-digit mobile number.",
+        "categoryRequired": "Please select a category.",
+        "messageRequired": "Message is required.",
+        "emailInvalid": "Please enter a valid email address."
+      }
+    },
+    "categories": {
+      "default": "Select a category",
+      "architecture": "Architecture",
+      "structure": "Structure",
+      "interior": "Interior",
+      "construction": "Construction",
+      "supervision": "Supervision",
+      "other": "Other"
+    },
+    "cta": {
+      "contactWhatsapp": "Contact on WhatsApp",
+      "sendEmail": "Send Email"
+    },
+    "addressLabel": "Our Office",
+    "addressFull": "62-65, Gali Number 1, Doctor Colony, Jindal Colony, Ramdev Colony, Sri Ganganagar, Rajasthan 335001",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "operatingHoursLabel": "Operating Hours",
+    "operatingHoursDetails": "Monday - Friday: 9:00 AM - 6:00 PM IST"
+  },
+  "servicesPage": {
+    "title": "Our Expert Services",
+    "description": "At Shriejan Infraa, we offer a comprehensive range of architectural, structural, and construction services designed to bring your vision to life with precision and excellence.",
+    "generalCta": "Discuss Your Project"
+  },
+  "services": {
+    "architecture": {
+      "title": "Architecture",
+      "shortDescription": "Innovative and functional designs that blend aesthetics with practicality.",
+      "longDescription": "Our architectural services focus on creating spaces that are not only visually stunning but also highly functional, sustainable, and tailored to your specific needs. From initial concept development and feasibility studies to detailed blueprint creation and regulatory approvals, we handle every aspect of the design process. We believe in a collaborative approach, working closely with clients to transform their visions into tangible, inspiring structures that stand the test of time.",
+      "benefits": {
+        "b1": "Custom, client-centric designs.",
+        "b2": "Sustainable and eco-friendly solutions.",
+        "b3": "Optimized space utilization.",
+        "b4": "Compliance with all building codes and regulations."
+      },
+      "process": {
+        "p1": "Concept & Feasibility Study: Understanding your vision and project viability.",
+        "p2": "Schematic Design: Developing preliminary sketches and layouts.",
+        "p3": "Design Development: Refining designs, selecting materials, and incorporating engineering inputs.",
+        "p4": "Construction Documentation: Preparing detailed drawings and specifications for construction."
+      },
+      "cta": "Enquire about Architecture Services"
+    },
+    "structure": {
+      "title": "Structure",
+      "shortDescription": "Ensuring the safety, stability, and durability of every build.",
+      "longDescription": "Our structural engineering services are fundamental to the safety and longevity of any construction project. We specialize in designing robust and efficient structural systems for various types of buildings, from residential homes to large commercial complexes. Our team utilizes advanced analysis tools to ensure structural integrity, cost-effectiveness, and compliance with all relevant safety standards. We focus on creating foundations and frameworks that provide unparalleled strength and resilience.",
+      "benefits": {
+        "b1": "Maximum structural integrity and safety.",
+        "b2": "Cost-effective and efficient designs.",
+        "b3": "Adherence to all national and international building codes."
+      },
+      "process": {
+        "p1": "Analysis & Design: Detailed load calculations and structural system design.",
+        "p2": "Foundation Design: Engineering the optimal foundation for soil conditions.",
+        "p3": "Structural Drawings: Preparing precise drawings for steel and concrete elements."
+      },
+      "cta": "Get a Quote for Structural Design"
+    },
+    "interiorDesign": {
+      "title": "Interior Design",
+      "shortDescription": "Crafting inspiring and functional indoor environments.",
+      "longDescription": "Our interior design services are dedicated to transforming indoor spaces into personalized, comfortable, and highly functional environments. We work closely with clients to understand their aesthetic preferences, lifestyle, and practical requirements. Our designs integrate bespoke furniture, lighting, color palettes, and textures to create cohesive and inviting interiors, whether for homes, offices, or commercial establishments. We aim to enhance the quality of life and work within the space.",
+      "benefits": {
+        "b1": "Personalized and cohesive interior aesthetics.",
+        "b2": "Enhanced functionality and comfort.",
+        "b3": "Optimal use of space and natural light.",
+        "b4": "Increased property value and appeal."
+      },
+      "process": {
+        "p1": "Space Planning & Concept: Layouts and mood boards reflecting your style.",
+        "p2": "Material & Finish Selection: Choosing textures, colors, and surfaces.",
+        "p3": "Furniture & Lighting Design: Sourcing or custom-designing elements.",
+        "p4": "Project Execution & Styling: Overseeing implementation and final touches."
+      },
+      "cta": "Explore Interior Design Solutions"
+    },
+    "construction": {
+      "title": "Construction",
+      "shortDescription": "Bringing designs to life with quality craftsmanship and timely execution.",
+      "longDescription": "Our construction services encompass full project management and execution, ensuring that your architectural and structural designs are realized with the highest standards of quality, safety, and efficiency. From site preparation and foundation laying to finishing touches, our experienced team manages every phase of the construction process. We pride ourselves on transparent communication, adherence to timelines and budgets, and delivering exceptional results that exceed expectations.",
+      "benefits": {
+        "b1": "High-quality construction standards.",
+        "b2": "On-time and within-budget project delivery.",
+        "b3": "Experienced and skilled workforce.",
+        "b4": "Stringent safety protocols.",
+        "b5": "Transparent project management."
+      },
+      "process": {
+        "p1": "Pre-Construction Planning: Budgeting, scheduling, and procurement.",
+        "p2": "Site Preparation: Clearing, grading, and foundation work.",
+        "p3": "Structural Erection: Building the framework and core structure.",
+        "p4": "Finishing & MEP: Installing interiors, electrical, plumbing, HVAC.",
+        "p5": "Quality Control & Handover: Final inspections and project completion."
+      },
+      "cta": "Start Your Construction Project"
+    },
+    "supervision": {
+      "title": "Supervision",
+      "shortDescription": "Ensuring project quality and compliance through expert oversight.",
+      "longDescription": "Our construction supervision services provide expert oversight throughout the building process, ensuring that every aspect of the project aligns with design specifications, quality standards, and regulatory requirements. We act as your eyes and ears on-site, monitoring progress, managing quality control, conducting regular inspections, and resolving on-site issues promptly. Our goal is to ensure a smooth construction process, minimize risks, and guarantee the successful completion of your project to the highest possible standards.",
+      "benefits": {
+        "b1": "Quality assurance throughout the project.",
+        "b2": "Adherence to design and specifications.",
+        "b3": "Efficient problem-solving on-site.",
+        "b4": "Risk mitigation and cost control."
+      },
+      "process": {
+        "p1": "Pre-Construction Review: Verifying plans and readiness.",
+        "p2": "On-Site Monitoring: Regular visits, progress tracking, quality checks.",
+        "p3": "Reporting & Communication: Providing regular updates and addressing issues.",
+        "p4": "Final Inspection & Certification: Ensuring project compliance and handover."
+      },
+      "cta": "Request Construction Supervision"
+    }
+  }
+}

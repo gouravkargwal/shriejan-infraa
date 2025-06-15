@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
+import I18nProvider from "@/components/I18nProvider";
+import Header from "@/components/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"], // Specify weights you'll use
+  variable: "--font-manrope",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={` ${manrope.variable} antialiased`}>
+        <I18nProvider>
+          <Header />
+          <div className="md:pt-10">{children}</div>
+        </I18nProvider>
       </body>
     </html>
   );
