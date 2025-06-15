@@ -1,0 +1,380 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "projects": "Projects",
+    "getQuote": "Get a Quote",
+    "learnMore": "Learn More",
+    "ourServices": "Our Services",
+    "aboutService": "About Our {{service}} Service",
+    "benefits": "Key Benefits",
+    "ourProcess": "Our Process",
+    "step": "Step",
+    "sending": "Sending...",
+    "notProvided": "Not Provided",
+    "projectTypes": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "industrial": "Industrial",
+      "heritage": "Heritage"
+    },
+    "languages": {
+      "en": "English",
+      "hi": "Hindi"
+    }
+  },
+  "languageModal": {
+    "selectLanguage": "Select Your Language",
+    "welcomeMessage": "Welcome! Please select your preferred language.",
+    "chooseLangPrompt": "Choose your language:",
+    "savePreference": "Save Preference"
+  },
+  "languages": {
+    "en": "English",
+    "hi": "Hindi"
+  },
+  "contact": {
+    "title": "Get in Touch with Shriejan Infraa",
+    "description": "Have a question or a project in mind? We'd love to hear from you! Fill out the form below or reach us through other channels.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your full name",
+      "mobile": "Mobile Number",
+      "mobilePlaceholder": "Enter your mobile number",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email (optional)",
+      "emailOptional": "Optional",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "message": "Message / Other Information",
+      "messagePlaceholder": "Tell us more about your needs or project...",
+      "validation": {
+        "nameRequired": "Name is required.",
+        "mobileRequired": "Mobile number is required.",
+        "mobileInvalid": "Please enter a valid 10-digit mobile number.",
+        "categoryRequired": "Please select a category.",
+        "messageRequired": "Message is required.",
+        "emailInvalid": "Please enter a valid email address."
+      }
+    },
+    "categories": {
+      "default": "Select a category",
+      "architecture": "Architecture",
+      "structure": "Structure",
+      "interior": "Interior",
+      "construction": "Construction",
+      "supervision": "Supervision",
+      "other": "Other"
+    },
+    "cta": {
+      "contactWhatsapp": "Contact on WhatsApp",
+      "sendEmail": "Send Email"
+    },
+    "addressLabel": "Our Office",
+    "addressFull": "62-65, Gali Number 1, Doctor Colony, Jindal Colony, Ramdev Colony, Sri Ganganagar, Rajasthan 335001",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "operatingHoursLabel": "Operating Hours",
+    "operatingHoursDetails": "Monday - Friday: 9:00 AM - 6:00 PM IST"
+  },
+  "servicesPage": {
+    "title": "Our Expert Services",
+    "description": "At Shriejan Infraa, we offer a comprehensive range of architectural, structural, and construction services designed to bring your vision to life with precision and excellence.",
+    "generalCta": "Discuss Your Project"
+  },
+  "services": {
+    "architecture": {
+      "title": "Architecture",
+      "shortDescription": "Innovative and functional designs that blend aesthetics with practicality.",
+      "longDescription": "Our architectural services focus on creating spaces that are not only visually stunning but also highly functional, sustainable, and tailored to your specific needs. From initial concept development and feasibility studies to detailed blueprint creation and regulatory approvals, we handle every aspect of the design process. We believe in a collaborative approach, working closely with clients to transform their visions into tangible, inspiring structures that stand the test of time.",
+      "benefits": {
+        "b1": "Custom, client-centric designs.",
+        "b2": "Sustainable and eco-friendly solutions.",
+        "b3": "Optimized space utilization.",
+        "b4": "Compliance with all building codes and regulations."
+      },
+      "process": {
+        "p1": "Concept & Feasibility Study: Understanding your vision and project viability.",
+        "p2": "Schematic Design: Developing preliminary sketches and layouts.",
+        "p3": "Design Development: Refining designs, selecting materials, and incorporating engineering inputs.",
+        "p4": "Construction Documentation: Preparing detailed drawings and specifications for construction."
+      },
+      "cta": "Enquire about Architecture Services"
+    },
+    "structure": {
+      "title": "Structure",
+      "shortDescription": "Ensuring the safety, stability, and durability of every build.",
+      "longDescription": "Our structural engineering services are fundamental to the safety and longevity of any construction project. We specialize in designing robust and efficient structural systems for various types of buildings, from residential homes to large commercial complexes. Our team utilizes advanced analysis tools to ensure structural integrity, cost-effectiveness, and compliance with all relevant safety standards. We focus on creating foundations and frameworks that provide unparalleled strength and resilience.",
+      "benefits": {
+        "b1": "Maximum structural integrity and safety.",
+        "b2": "Cost-effective and efficient designs.",
+        "b3": "Adherence to all national and international building codes."
+      },
+      "process": {
+        "p1": "Analysis & Design: Detailed load calculations and structural system design.",
+        "p2": "Foundation Design: Engineering the optimal foundation for soil conditions.",
+        "p3": "Structural Drawings: Preparing precise drawings for steel and concrete elements."
+      },
+      "cta": "Get a Quote for Structural Design"
+    },
+    "interiorDesign": {
+      "title": "Interior Design",
+      "shortDescription": "Crafting inspiring and functional indoor environments.",
+      "longDescription": "Our interior design services are dedicated to transforming indoor spaces into personalized, comfortable, and highly functional environments. We work closely with clients to understand their aesthetic preferences, lifestyle, and practical requirements. Our designs integrate bespoke furniture, lighting, color palettes, and textures to create cohesive and inviting interiors, whether for homes, offices, or commercial establishments. We aim to enhance the quality of life and work within the space.",
+      "benefits": {
+        "b1": "Personalized and cohesive interior aesthetics.",
+        "b2": "Enhanced functionality and comfort.",
+        "b3": "Optimal use of space and natural light.",
+        "b4": "Increased property value and appeal."
+      },
+      "process": {
+        "p1": "Space Planning & Concept: Layouts and mood boards reflecting your style.",
+        "p2": "Material & Finish Selection: Choosing textures, colors, and surfaces.",
+        "p3": "Furniture & Lighting Design: Sourcing or custom-designing elements.",
+        "p4": "Project Execution & Styling: Overseeing implementation and final touches."
+      },
+      "cta": "Explore Interior Design Solutions"
+    },
+    "construction": {
+      "title": "Construction",
+      "shortDescription": "Bringing designs to life with quality craftsmanship and timely execution.",
+      "longDescription": "Our construction services encompass full project management and execution, ensuring that your architectural and structural designs are realized with the highest standards of quality, safety, and efficiency. From site preparation and foundation laying to finishing touches, our experienced team manages every phase of the construction process. We pride ourselves on transparent communication, adherence to timelines and budgets, and delivering exceptional results that exceed expectations.",
+      "benefits": {
+        "b1": "High-quality construction standards.",
+        "b2": "On-time and within-budget project delivery.",
+        "b3": "Experienced and skilled workforce.",
+        "b4": "Stringent safety protocols.",
+        "b5": "Transparent project management."
+      },
+      "process": {
+        "p1": "Pre-Construction Planning: Budgeting, scheduling, and procurement.",
+        "p2": "Site Preparation: Clearing, grading, and foundation work.",
+        "p3": "Structural Erection: Building the framework and core structure.",
+        "p4": "Finishing & MEP: Installing interiors, electrical, plumbing, HVAC.",
+        "p5": "Quality Control & Handover: Final inspections and project completion."
+      },
+      "cta": "Start Your Construction Project"
+    },
+    "supervision": {
+      "title": "Supervision",
+      "shortDescription": "Ensuring project quality and compliance through expert oversight.",
+      "longDescription": "Our construction supervision services provide expert oversight throughout the building process, ensuring that every aspect of the project aligns with design specifications, quality standards, and regulatory requirements. We act as your eyes and ears on-site, monitoring progress, managing quality control, conducting regular inspections, and resolving on-site issues promptly. Our goal is to ensure a smooth construction process, minimize risks, and guarantee the successful completion of your project to the highest possible standards.",
+      "benefits": {
+        "b1": "Quality assurance throughout the project.",
+        "b2": "Adherence to design and specifications.",
+        "b3": "Efficient problem-solving on-site.",
+        "b4": "Risk mitigation and cost control."
+      },
+      "process": {
+        "p1": "Pre-Construction Review: Verifying plans and readiness.",
+        "p2": "On-Site Monitoring: Regular visits, progress tracking, quality checks.",
+        "p3": "Reporting & Communication: Providing regular updates and addressing issues.",
+        "p4": "Final Inspection & Certification: Ensuring project compliance and handover."
+      },
+      "cta": "Request Construction Supervision"
+    }
+  },
+  "aboutUs": {
+    "title": "About Shriejan Infraa",
+    "missionStatement": "Founded in Sri Ganganagar, Shriejan Infraa is driven by a singular vision: to blend innovative design with robust construction, delivering exceptional architectural and structural solutions. We are committed to exceeding client expectations through precision, integrity, and a deep understanding of local needs.",
+    "team": {
+      "title": "Meet Our Expert Team",
+      "introMessage": "Our strength lies in our diverse expertise and collaborative spirit. Meet the core team bringing your visions to life:",
+      "akshay": {
+        "name": "Akshay",
+        "role": "Lead Engineer",
+        "bio": "Akshay is a highly experienced civil engineer with a strong background in structural analysis and design. His meticulous approach ensures every project's safety and longevity, leveraging cutting-edge engineering principles."
+      },
+      "ankit": {
+        "name": "Ankit",
+        "role": "Project Engineer",
+        "bio": "Ankit, also a skilled engineer, specializes in project planning and execution. His ability to manage complex logistics and optimize workflows is crucial for delivering projects efficiently and on schedule."
+      },
+      "vijay": {
+        "name": "Vijay",
+        "role": "Head Contractor",
+        "bio": "Vijay brings invaluable practical experience as a seasoned contractor. His hands-on knowledge of construction techniques and site management ensures superior craftsmanship and smooth on-ground operations."
+      }
+    },
+    "values": {
+      "title": "Our Core Values",
+      "v1": {
+        "title": "Integrity",
+        "description": "Upholding honesty and strong moral principles in all our dealings."
+      },
+      "v2": {
+        "title": "Excellence",
+        "description": "Committed to delivering the highest quality in design and construction."
+      },
+      "v3": {
+        "title": "Client-Centricity",
+        "description": "Prioritizing client needs and visions at every stage of the project."
+      },
+      "v4": {
+        "title": "Innovation",
+        "description": "Embracing new technologies and creative solutions."
+      }
+    },
+    "certifications": {
+      "title": "Certifications & Licenses",
+      "description": "Shriejan Infraa operates with full compliance and holds the necessary professional accreditations, ensuring all our projects meet industry standards and regulatory requirements.",
+      "list": {
+        "c1": "Licensed Civil Engineering Firm, Rajasthan",
+        "c2": "Certified Structural Design Professionals",
+        "c3": "ISO 9001:2015 Certified (Quality Management)"
+      }
+    }
+  },
+  "testimonialsPage": {
+    "title": "Hear From Our Satisfied Clients",
+    "description": "Our commitment to excellence is reflected in the positive experiences of those we've built for. Read what they have to say.",
+    "noTestimonials": "No testimonials available yet. Check back soon!",
+    "viewRelatedProject": "View Related Project"
+  },
+  "projects": {
+    "overview": {
+      "title": "Our Completed Projects",
+      "description": "Explore our portfolio of successful projects spanning various categories, demonstrating our expertise in bringing visions to life.",
+      "noProjectsFound": "No projects found for this category.",
+      "viewProject": "View Project"
+    },
+    "filters": {
+      "all": "All Projects"
+    },
+    "clientTypes": {
+      "residential": "Residential Client",
+      "commercial": "Commercial Client",
+      "industrial": "Industrial Client"
+    },
+    "imageTypes": {
+      "before": "Before",
+      "after": "After",
+      "in-progress": "In Progress",
+      "rendering": "Rendering",
+      "blueprint": "Blueprint",
+      "final": "Final Result"
+    },
+    "detail": {
+      "challengeSolution": "Challenge & Solution",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "servicesProvided": "Services Provided",
+      "imageGallery": "Image Gallery",
+      "teamContribution": "Team's Contribution",
+      "resultsImpact": "Results & Impact",
+      "discussSimilarProject": "Discuss a Similar Project",
+      "viewAllServices": "View All Services"
+    },
+    "p1": {
+      "title": "Modern Family Bungalow",
+      "location": "Vaishali Nagar, Jaipur",
+      "shortDescription": "A custom-designed and constructed modern bungalow blending luxury and functionality.",
+      "challenge": "Designing a spacious, modern bungalow on a compact urban plot while ensuring ample natural light and ventilation.",
+      "solution": "Implemented a strategic open-plan layout with double-height spaces and large windows. Utilized light-colored materials and an efficient ventilation system.",
+      "team": {
+        "akshay": "Akshay led the architectural concept and structural integrity, ensuring optimal space utilization.",
+        "ankit": "Ankit managed the construction phases, ensuring timely delivery and quality craftsmanship."
+      },
+      "resultsImpact": "Delivered a beautiful, energy-efficient home that maximized the plot's potential and exceeded client expectations for comfort and aesthetic appeal.",
+      "cta": "Explore Your Dream Home Project"
+    },
+    "p2": {
+      "title": "Commercial Office Complex",
+      "location": "Sitapura Industrial Area, Jaipur",
+      "shortDescription": "Development of a state-of-the-art, multi-story commercial office building.",
+      "challenge": "Constructing a large-scale commercial complex with strict deadlines and advanced infrastructure requirements.",
+      "solution": "Employed a phased construction approach with robust project management. Integrated smart building technologies and sustainable materials for long-term efficiency.",
+      "team": {
+        "akshay": "Akshay oversaw the complex structural design and material specifications for the multi-story structure.",
+        "vijay": "Vijay was instrumental in on-site coordination and ensuring adherence to safety protocols and construction timelines."
+      },
+      "resultsImpact": "Completed on budget and two weeks ahead of schedule, providing a modern, functional workspace for multiple businesses, leading to high occupancy rates.",
+      "cta": "Discuss Your Commercial Project"
+    },
+    "p3": {
+      "title": "Boutique Hotel Interior",
+      "location": "Old City, Jaipur",
+      "shortDescription": "Transforming an old haveli into a contemporary boutique hotel with traditional charm.",
+      "challenge": "Preserving the historical essence of the building while integrating modern amenities and a luxurious interior aesthetic.",
+      "solution": "Developed a design concept that blended traditional Rajasthani elements with contemporary finishes. Custom furniture and lighting were designed to create unique guest experiences.",
+      "team": {
+        "ankit": "Ankit spearheaded the interior design, managing vendor relationships and ensuring the aesthetic vision was realized with precision."
+      },
+      "resultsImpact": "The hotel now stands as a unique blend of heritage and modern luxury, attracting high-end tourism and receiving excellent reviews for its ambiance and design.",
+      "cta": "Plan Your Hospitality Design"
+    },
+    "p4": {
+      "title": "Industrial Warehouse Development",
+      "location": "RIICO Industrial Area, Sri Ganganagar",
+      "shortDescription": "Design and construction of a large-scale, efficient industrial warehouse.",
+      "challenge": "Building a robust and expandable warehouse structure optimized for logistics and storage, within a stringent budget.",
+      "solution": "Designed a pre-engineered metal building structure for rapid construction and future expansion. Focused on durable flooring and high-efficiency lighting.",
+      "team": {
+        "akshay": "Akshay provided the optimized structural design for the wide-span warehouse, ensuring stability and load-bearing capacity.",
+        "vijay": "Vijay ensured the efficient deployment of construction teams and managed the material flow on-site for fast-track completion."
+      },
+      "resultsImpact": "Delivered a cost-effective, high-capacity warehouse that significantly improved the client's operational efficiency and storage capabilities.",
+      "cta": "Enquire About Industrial Projects"
+    },
+    "p5": {
+      "title": "Residential Apartment Complex",
+      "location": "Adarsh Nagar, Jaipur",
+      "shortDescription": "Multi-story apartment complex offering modern living spaces with amenities.",
+      "challenge": "Creating a dense residential complex with diverse apartment types and shared amenities on a limited urban footprint.",
+      "solution": "Implemented a modular design approach, optimizing unit layouts and vertical space. Integrated common facilities like a gym, lounge, and landscaped areas within the complex.",
+      "team": {
+        "akshay": "Akshay's expertise ensured the structural integrity and space planning for the multi-story apartment block.",
+        "ankit": "Ankit managed the intricate coordination of various trades, from plumbing to electrical, for all apartment units.",
+        "vijay": "Vijay's on-site supervision guaranteed smooth daily operations and adherence to construction quality across all phases."
+      },
+      "resultsImpact": "A sought-after residential complex with high occupancy rates and positive resident feedback on the quality of construction and integrated amenities.",
+      "cta": "Start Your Multi-Residential Project"
+    }
+  },
+  "homepage": {
+    "hero": {
+      "headline": "Building Your Vision with Precision and Trust in Sri Ganganagar",
+      "subheadline": "Your reliable partner for exceptional civil engineering, architectural design, and construction services.",
+      "cta": "Get a Free Consultation"
+    },
+    "servicesOverview": {
+      "title": "Our Expertise, Your Foundation for Success",
+      "description": "Discover our comprehensive range of services, designed to cover every aspect of your project, from initial concept to final execution.",
+      "viewAllServices": "View All Services"
+    },
+    "featuredProjects": {
+      "title": "Showcasing Our Craftsmanship",
+      "description": "Explore some of our recent projects that highlight our commitment to quality, innovation, and client satisfaction.",
+      "viewAllProjects": "View All Projects"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Shriejan Infraa?",
+      "description": "We stand apart through our dedication to excellence and client success. Here's what makes us your preferred partner:",
+      "d1": {
+        "title": "Local Expertise",
+        "description": "Deep understanding of Jaipur's landscape, regulations, and architectural heritage for seamless project execution."
+      },
+      "d2": {
+        "title": "Experienced Team",
+        "description": "A seasoned team of engineers, architects, and contractors committed to delivering superior results."
+      },
+      "d3": {
+        "title": "Quality & Integrity",
+        "description": "Unwavering commitment to the highest quality standards, transparent processes, and ethical practices."
+      }
+    },
+    "testimonialsSnippet": {
+      "title": "What Our Clients Say",
+      "description": "Don't just take our word for it. Hear directly from those who've built their dreams with us.",
+      "viewAll": "Read All Testimonials"
+    },
+    "secondaryCta": {
+      "headline": "Ready to Transform Your Ideas into Reality?",
+      "subheadline": "Let's build something exceptional together. Contact us today for a personalized discussion about your project.",
+      "cta": "Start Your Project Now"
+    }
+  }
+}

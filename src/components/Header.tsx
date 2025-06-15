@@ -1,16 +1,15 @@
-// components/Header.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { usePathname } from "next/navigation"; // Import usePathname from Next.js
-import LanguageSwitcher from "./Langauge/LanguageSwitcher"; // Make sure path is correct
-import LanguageSelectionModal from "./Langauge/LanguageModel"; // Make sure path is correct
+import { usePathname } from "next/navigation";
+import LanguageSwitcher from "./Langauge/LanguageSwitcher";
+import LanguageSelectionModal from "./Langauge/LanguageModel";
 
-const Header = () => {
+const Header = ({ params: { lng } }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation(); // Destructure t from useTranslation
+  const { t } = useTranslation(lng);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const pathname = usePathname(); // Get the current path
 
@@ -33,12 +32,12 @@ const Header = () => {
 
   // Navigation Links - Updated href for /about and /contact based on previous discussion
   const navLinks = [
-    { href: "/", text: t("common.home") },
-    { href: "/about", text: t("common.about") }, // Changed to /about-us
-    { href: "/contact", text: t("common.contact") }, // Changed to /contact-us
-    { href: "/services", text: t("common.services") },
-    { href: "/testimonials", text: t("common.testimonials") },
-    { href: "/projects", text: t("common.projects") },
+    { href: `/${lng}`, text: t("common.home") },
+    { href: `/${lng}/about`, text: t("common.about") }, // Changed to /about-us
+    { href: `/${lng}/contact`, text: t("common.contact") }, // Changed to /contact-us
+    { href: `/${lng}/services`, text: t("common.services") },
+    { href: `/${lng}/testimonials`, text: t("common.testimonials") },
+    { href: `/${lng}/projects`, text: t("common.projects") },
   ];
 
   return (
@@ -46,10 +45,9 @@ const Header = () => {
       {/* Main Header Container */}
       <header className="bg-white py-2 px-4 md:px-8 shadow-sm z-50 fixed top-0 w-full">
         <div className="container mx-auto flex justify-between items-center">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <Link
-              href="/"
+              href={`/${lng}`}
               className="font-extrabold text-gray-900 font-inter tracking-tight"
             >
               Shriejan Infraa

@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --header-height: 13px;
 }
 
 @theme inline {
@@ -23,4 +24,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height, 0);
+  font-family: var(--font-inter); /* Example if you are using font variables */
+  box-sizing: border-box; /* Ensures padding is included in element's total width/height */
+  overflow-x: hidden; /* Prevents horizontal scrolling issues */
+}
+
+.header-component-class {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height); /* Ensure header explicitly takes this height */
+  z-index: 1000; /* Ensure header is above all other content */
+  background-color: white; /* Example */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example */
 }

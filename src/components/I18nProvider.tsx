@@ -1,7 +1,7 @@
 "use client"; // This is CRUCIAL! It marks this as a Client Component.
 
 import { I18nextProvider } from "react-i18next";
-import i18n from "../../lib/i18n"; // Import your i18n config
+import i18n from "../i18n/index"; // Import your i18n config
 
 interface I18nProviderProps {
   children: React.ReactNode;

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Project, ProjectImage } from "../../../lib/projectsData";
+import { Project, ProjectImage } from "../../lib/projectsData";
 import {
   CheckCircleIcon,
   ImagesIcon,
