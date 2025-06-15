@@ -12,7 +12,15 @@
     "aboutService": "About Our {{service}} Service",
     "benefits": "Key Benefits",
     "ourProcess": "Our Process",
-    "step": "Step"
+    "step": "Step",
+    "sending": "Sending...",
+    "notProvided": "Not Provided",
+    "projectTypes": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "industrial": "Industrial",
+      "heritage": "Heritage"
+    }
   },
   "languageModal": {
     "selectLanguage": "Select Your Language",
@@ -26,6 +34,7 @@
   },
   "contact": {
     "title": "Get in Touch with Shriejan Infraa",
+    "description": "Have a question or a project in mind? We'd love to hear from you! Fill out the form below or reach us through other channels.",
     "form": {
       "name": "Name",
       "namePlaceholder": "Enter your full name",
@@ -33,6 +42,7 @@
       "mobilePlaceholder": "Enter your mobile number",
       "email": "Email Address",
       "emailPlaceholder": "Enter your email (optional)",
+      "emailOptional": "Optional",
       "category": "Category",
       "categoryPlaceholder": "Select a category",
       "message": "Message / Other Information",
@@ -161,6 +171,161 @@
         "p4": "Final Inspection & Certification: Ensuring project compliance and handover."
       },
       "cta": "Request Construction Supervision"
+    }
+  },
+  "aboutUs": {
+    "title": "About Shriejan Infraa",
+    "missionStatement": "Founded in Sri Ganganagar, Shriejan Infraa is driven by a singular vision: to blend innovative design with robust construction, delivering exceptional architectural and structural solutions. We are committed to exceeding client expectations through precision, integrity, and a deep understanding of local needs.",
+    "team": {
+      "title": "Meet Our Expert Team",
+      "introMessage": "Our strength lies in our diverse expertise and collaborative spirit. Meet the core team bringing your visions to life:",
+      "akshay": {
+        "name": "Akshay",
+        "role": "Lead Engineer",
+        "bio": "Akshay is a highly experienced civil engineer with a strong background in structural analysis and design. His meticulous approach ensures every project's safety and longevity, leveraging cutting-edge engineering principles."
+      },
+      "ankit": {
+        "name": "Ankit",
+        "role": "Project Engineer",
+        "bio": "Ankit, also a skilled engineer, specializes in project planning and execution. His ability to manage complex logistics and optimize workflows is crucial for delivering projects efficiently and on schedule."
+      },
+      "vijay": {
+        "name": "Vijay",
+        "role": "Head Contractor",
+        "bio": "Vijay brings invaluable practical experience as a seasoned contractor. His hands-on knowledge of construction techniques and site management ensures superior craftsmanship and smooth on-ground operations."
+      }
+    },
+    "values": {
+      "title": "Our Core Values",
+      "v1": {
+        "title": "Integrity",
+        "description": "Upholding honesty and strong moral principles in all our dealings."
+      },
+      "v2": {
+        "title": "Excellence",
+        "description": "Committed to delivering the highest quality in design and construction."
+      },
+      "v3": {
+        "title": "Client-Centricity",
+        "description": "Prioritizing client needs and visions at every stage of the project."
+      },
+      "v4": {
+        "title": "Innovation",
+        "description": "Embracing new technologies and creative solutions."
+      }
+    },
+    "certifications": {
+      "title": "Certifications & Licenses",
+      "description": "Shriejan Infraa operates with full compliance and holds the necessary professional accreditations, ensuring all our projects meet industry standards and regulatory requirements.",
+      "list": {
+        "c1": "Licensed Civil Engineering Firm, Rajasthan",
+        "c2": "Certified Structural Design Professionals",
+        "c3": "ISO 9001:2015 Certified (Quality Management)"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Client Success Stories",
+    "description": "Hear directly from our valued clients about their experience working with Shriejan Infraa. Your satisfaction is our greatest reward."
+  },
+  "projects": {
+    "overview": {
+      "title": "Our Completed Projects",
+      "description": "Explore our portfolio of successful projects spanning various categories, demonstrating our expertise in bringing visions to life.",
+      "noProjectsFound": "No projects found for this category.",
+      "viewProject": "View Project"
+    },
+    "filters": {
+      "all": "All Projects"
+    },
+    "clientTypes": {
+      "residential": "Residential Client",
+      "commercial": "Commercial Client",
+      "industrial": "Industrial Client"
+    },
+    "imageTypes": {
+      "before": "Before",
+      "after": "After",
+      "in-progress": "In Progress",
+      "rendering": "Rendering",
+      "blueprint": "Blueprint",
+      "final": "Final Result"
+    },
+    "detail": {
+      "challengeSolution": "Challenge & Solution",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "servicesProvided": "Services Provided",
+      "imageGallery": "Image Gallery",
+      "teamContribution": "Team's Contribution",
+      "resultsImpact": "Results & Impact",
+      "discussSimilarProject": "Discuss a Similar Project",
+      "viewAllServices": "View All Services"
+    },
+    "p1": {
+      "title": "Modern Family Bungalow",
+      "location": "Vaishali Nagar, Jaipur",
+      "shortDescription": "A custom-designed and constructed modern bungalow blending luxury and functionality.",
+      "challenge": "Designing a spacious, modern bungalow on a compact urban plot while ensuring ample natural light and ventilation.",
+      "solution": "Implemented a strategic open-plan layout with double-height spaces and large windows. Utilized light-colored materials and an efficient ventilation system.",
+      "team": {
+        "akshay": "Akshay led the architectural concept and structural integrity, ensuring optimal space utilization.",
+        "ankit": "Ankit managed the construction phases, ensuring timely delivery and quality craftsmanship."
+      },
+      "resultsImpact": "Delivered a beautiful, energy-efficient home that maximized the plot's potential and exceeded client expectations for comfort and aesthetic appeal.",
+      "cta": "Explore Your Dream Home Project"
+    },
+    "p2": {
+      "title": "Commercial Office Complex",
+      "location": "Sitapura Industrial Area, Jaipur",
+      "shortDescription": "Development of a state-of-the-art, multi-story commercial office building.",
+      "challenge": "Constructing a large-scale commercial complex with strict deadlines and advanced infrastructure requirements.",
+      "solution": "Employed a phased construction approach with robust project management. Integrated smart building technologies and sustainable materials for long-term efficiency.",
+      "team": {
+        "akshay": "Akshay oversaw the complex structural design and material specifications for the multi-story structure.",
+        "vijay": "Vijay was instrumental in on-site coordination and ensuring adherence to safety protocols and construction timelines."
+      },
+      "resultsImpact": "Completed on budget and two weeks ahead of schedule, providing a modern, functional workspace for multiple businesses, leading to high occupancy rates.",
+      "cta": "Discuss Your Commercial Project"
+    },
+    "p3": {
+      "title": "Boutique Hotel Interior",
+      "location": "Old City, Jaipur",
+      "shortDescription": "Transforming an old haveli into a contemporary boutique hotel with traditional charm.",
+      "challenge": "Preserving the historical essence of the building while integrating modern amenities and a luxurious interior aesthetic.",
+      "solution": "Developed a design concept that blended traditional Rajasthani elements with contemporary finishes. Custom furniture and lighting were designed to create unique guest experiences.",
+      "team": {
+        "ankit": "Ankit spearheaded the interior design, managing vendor relationships and ensuring the aesthetic vision was realized with precision."
+      },
+      "resultsImpact": "The hotel now stands as a unique blend of heritage and modern luxury, attracting high-end tourism and receiving excellent reviews for its ambiance and design.",
+      "cta": "Plan Your Hospitality Design"
+    },
+    "p4": {
+      "title": "Industrial Warehouse Development",
+      "location": "RIICO Industrial Area, Sri Ganganagar",
+      "shortDescription": "Design and construction of a large-scale, efficient industrial warehouse.",
+      "challenge": "Building a robust and expandable warehouse structure optimized for logistics and storage, within a stringent budget.",
+      "solution": "Designed a pre-engineered metal building structure for rapid construction and future expansion. Focused on durable flooring and high-efficiency lighting.",
+      "team": {
+        "akshay": "Akshay provided the optimized structural design for the wide-span warehouse, ensuring stability and load-bearing capacity.",
+        "vijay": "Vijay ensured the efficient deployment of construction teams and managed the material flow on-site for fast-track completion."
+      },
+      "resultsImpact": "Delivered a cost-effective, high-capacity warehouse that significantly improved the client's operational efficiency and storage capabilities.",
+      "cta": "Enquire About Industrial Projects"
+    },
+    "p5": {
+      "title": "Residential Apartment Complex",
+      "location": "Adarsh Nagar, Jaipur",
+      "shortDescription": "Multi-story apartment complex offering modern living spaces with amenities.",
+      "challenge": "Creating a dense residential complex with diverse apartment types and shared amenities on a limited urban footprint.",
+      "solution": "Implemented a modular design approach, optimizing unit layouts and vertical space. Integrated common facilities like a gym, lounge, and landscaped areas within the complex.",
+      "team": {
+        "akshay": "Akshay's expertise ensured the structural integrity and space planning for the multi-story apartment block.",
+        "ankit": "Ankit managed the intricate coordination of various trades, from plumbing to electrical, for all apartment units.",
+        "vijay": "Vijay's on-site supervision guaranteed smooth daily operations and adherence to construction quality across all phases."
+      },
+      "resultsImpact": "A sought-after residential complex with high occupancy rates and positive resident feedback on the quality of construction and integrated amenities.",
+      "cta": "Start Your Multi-Residential Project"
     }
   }
 }

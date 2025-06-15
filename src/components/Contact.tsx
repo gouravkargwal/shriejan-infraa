@@ -1,4 +1,3 @@
-// app/contact-us/page.tsx
 "use client";
 
 import React from "react";
@@ -19,7 +18,7 @@ const contactFormSchema = z.object({
     .string()
     .email({ message: "contact.form.validation.emailInvalid" })
     .optional()
-    .or(z.literal("")),
+    .or(z.literal("")), // Allows empty string as valid for optional email
   category: z
     .string()
     .min(1, { message: "contact.form.validation.categoryRequired" }),
@@ -63,72 +62,88 @@ const Contact: React.FC = () => {
   const onSubmit = async (data: ContactFormData) => {
     console.log("Form Data Submitted:", data);
 
+    // Simulate API call
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      alert("Form submitted successfully! Thank you for contacting us.");
-      reset();
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate network delay
+      alert(t("contact.form.submissionSuccess")); // Use translation for alert
+      reset(); // Reset form fields on success
     } catch (error) {
       console.error("Submission error:", error);
-      alert("Failed to send message. Please try again.");
+      alert(t("contact.form.submissionError")); // Use translation for alert
     }
   };
 
   const handleWhatsAppContact = () => {
-    const mobileNumber = "+919876543210"; // Replace with Shriejan Infraa's WhatsApp Business Number
-    const currentFormData = getValues();
+    // IMPORTANT: Replace with Shriejan Infraa's actual WhatsApp Business Number
+    // Use the international format without '+' or '00' at the beginning, just the country code + number.
+    const mobileNumber = "919876543210"; // Example for India: 91XXXXXXXXXX
 
+    const currentFormData = getValues(); // Get current form values without validation
+
+    // Construct a pre-filled message based on available form data
     const prefilledMessage = encodeURIComponent(
-      `Hello Shriejan Infraa, I'm interested in your services. ` +
-        `My name is ${currentFormData.name || "___"}. ` +
-        `My mobile number is ${currentFormData.mobile || "___"}. ` +
-        `My query category is ${t(
+      `Hello Shriejan Infraa, I'm interested in your services. \n` +
+        `Name: ${currentFormData.name || t("common.notProvided")}\n` +
+        `Mobile: ${currentFormData.mobile || t("common.notProvided")}\n` +
+        `Category: ${t(
           currentFormData.category
             ? `contact.categories.${currentFormData.category}`
             : "contact.categories.default"
-        )}. ` +
+        )}\n` +
+        (currentFormData.email ? `Email: ${currentFormData.email}\n` : "") +
         (currentFormData.message
-          ? `\n\nMessage: ${currentFormData.message}`
-          : "")
+          ? `\nMessage: ${currentFormData.message}`
+          : "") +
+        `\n\nLooking forward to hearing from you.`
     );
     const whatsappUrl = `https://wa.me/${mobileNumber}?text=${prefilledMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 
+  // Framer Motion variants for error messages
   const errorVariants = {
     hidden: { opacity: 0, y: -5 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
     exit: { opacity: 0, y: -5, transition: { duration: 0.15 } },
   };
 
+  // Framer Motion variants for section entrance (similar to other pages)
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    // Outer div for the entire page content area, allowing it to scroll naturally
-    // We add top padding to clear the fixed header.
     <div className="bg-gray-50 font-inter min-h-screen pt-[var(--header-height)] pb-16">
-      {/*
-        pt-[var(--header-height)]: Uses a CSS variable for top padding.
-        You should define --header-height in your global CSS or adjust this value
-        to precisely match your fixed header's height (e.g., pt-24 if header is 96px tall).
-        min-h-screen: Ensures the page still takes at least full viewport height,
-                      but allows it to grow taller and scroll if content exceeds.
-      */}
       <div className="container mx-auto p-4 md:p-8 lg:p-12">
-        <div className="text-center mb-10 md:mb-12 lg:mb-16 mt-6 md:mt-8">
-          {" "}
-          {/* Added top margin to title section */}
+        {/* Title Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-10 md:mb-12 lg:mb-16 mt-6 md:mt-8"
+        >
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
             {t("contact.title")}
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t(
-              "contact.description" ||
-                "Have a question or a project in mind? We'd love to hear from you! Fill out the form below or reach us through other channels."
-            )}
+            {t("contact.description")}
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
           {/* Left Column: Contact Form */}
-          <div className="bg-white p-6 md:p-10 rounded-xl shadow-xl border border-gray-100">
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="bg-white p-6 md:p-10 rounded-xl shadow-xl border border-gray-100"
+          >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               {/* Name */}
               <div>
@@ -149,7 +164,7 @@ const Contact: React.FC = () => {
                   } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base transition duration-200`}
                 />
                 <div className="min-h-[20px]">
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {errors.name && (
                       <motion.p
                         key="nameError"
@@ -176,7 +191,7 @@ const Contact: React.FC = () => {
                   <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="tel"
+                  type="tel" // Use type="tel" for mobile numbers
                   id="mobile"
                   {...register("mobile")}
                   placeholder={t("contact.form.mobilePlaceholder")}
@@ -185,7 +200,7 @@ const Contact: React.FC = () => {
                   } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base transition duration-200`}
                 />
                 <div className="min-h-[20px]">
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {errors.mobile && (
                       <motion.p
                         key="mobileError"
@@ -208,7 +223,10 @@ const Contact: React.FC = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  {t("contact.form.email")} ({t("contact.form.emailOptional")})
+                  {t("contact.form.email")}{" "}
+                  <span className="text-gray-500">
+                    ({t("contact.form.emailOptional")})
+                  </span>
                 </label>
                 <input
                   type="email"
@@ -220,7 +238,7 @@ const Contact: React.FC = () => {
                   } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base transition duration-200`}
                 />
                 <div className="min-h-[20px]">
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {errors.email && (
                       <motion.p
                         key="emailError"
@@ -260,7 +278,7 @@ const Contact: React.FC = () => {
                   ))}
                 </select>
                 <div className="min-h-[20px]">
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {errors.category && (
                       <motion.p
                         key="categoryError"
@@ -296,7 +314,7 @@ const Contact: React.FC = () => {
                   } rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-base transition duration-200`}
                 ></textarea>
                 <div className="min-h-[20px]">
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {errors.message && (
                       <motion.p
                         key="messageError"
@@ -318,7 +336,7 @@ const Contact: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleWhatsAppContact}
-                  className="flex-1 flex items-center justify-center bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300 font-semibold transform hover:-translate-y-1"
+                  className="flex-1 flex items-center justify-center bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300 font-semibold transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isSubmitting}
                 >
                   <svg
@@ -333,18 +351,25 @@ const Contact: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 font-semibold transform hover:-translate-y-1"
+                  className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 font-semibold transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : t("contact.cta.sendEmail")}
+                  {isSubmitting
+                    ? t("common.sending")
+                    : t("contact.cta.sendEmail")}
                 </button>
               </div>
             </form>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Address, Map, Phone, Email, Hours */}
           <div className="space-y-8">
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-gray-100">
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-gray-100"
+            >
               <h2 className="text-2xl font-bold text-gray-900 mb-4 font-inter">
                 {t("contact.addressLabel")}
               </h2>
@@ -352,10 +377,9 @@ const Contact: React.FC = () => {
                 {t("contact.addressFull")}
               </p>
 
-              {/* Google Maps Embed */}
               <div className="aspect-w-16 aspect-h-9 w-full h-64 rounded-xl overflow-hidden shadow-md border border-gray-200">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.76498434479!2d73.8782524!3d29.899871700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3917b57f41219bf5%3A0xcc30c2901197f29!2sShriejan%20Desiign%20Lab!5e0!3m2!1sen!2sin!4v1749977713025!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.76498434479!2d73.8782524!3d29.899871700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3917b57f41219bf5%3A0xcc30c2901197f29!2sShriejan%20Desiign%20Lab!5e0!3m2!1sen!2sin!4v1749980802764!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -365,15 +389,24 @@ const Contact: React.FC = () => {
                   aria-label="Google Map of Shriejan Infraa office"
                 ></iframe>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-gray-100 space-y-4">
+            {/* Contact Details */}
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-gray-100 space-y-4"
+            >
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-2 font-inter">
                   {t("contact.phoneLabel")}
                 </h2>
                 <p className="text-blue-600 text-lg font-semibold">
-                  <a href="tel:+919876543210">+91 98765 43210</a>
+                  <a href="tel:+919876543210" className="hover:underline">
+                    +91 98765 43210
+                  </a>
                 </p>
               </div>
               <div>
@@ -381,7 +414,10 @@ const Contact: React.FC = () => {
                   {t("contact.emailLabel")}
                 </h2>
                 <p className="text-blue-600 text-lg font-semibold">
-                  <a href="mailto:info@shriejaninfraa.com">
+                  <a
+                    href="mailto:info@shriejaninfraa.com"
+                    className="hover:underline"
+                  >
                     info@shriejaninfraa.com
                   </a>
                 </p>
@@ -394,7 +430,7 @@ const Contact: React.FC = () => {
                   {t("contact.operatingHoursDetails")}
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
