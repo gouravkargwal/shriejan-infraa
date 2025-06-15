@@ -7,11 +7,10 @@ import { motion } from "framer-motion";
 import akshayHeadshot from "../../../../public/images/team/tea.jpg"; // Adjust path as needed
 import ankitHeadshot from "../../../../public/images/team/tea.jpg"; // Adjust path as needed
 import vijayHeadshot from "../../../../public/images/team/tea.jpg"; // Adjust path as needed
-import { ClientPageProps } from "@/types";
 import { useTranslation } from "@/i18n/client";
 
-export default function AboutPage({ params: { lng } }: ClientPageProps) {
-  const { t } = useTranslation(lng, "about"); // Pass lng to the client hook
+export default function AboutPage({ params: { lng } }) {
+  const { t } = useTranslation(lng);
 
   // Framer Motion variants for staggered animations
   const containerVariants = {

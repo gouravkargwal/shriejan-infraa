@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
-import { ClientPageProps } from "@/types";
 import { useTranslation } from "@/i18n/client";
 
 const contactFormSchema = z.object({
@@ -29,7 +28,7 @@ const contactFormSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
-export default function ContactPage({ params: { lng } }: ClientPageProps) {
+export default function ContactPage({ params: { lng } }) {
   const { t } = useTranslation(lng);
 
   const {

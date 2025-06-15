@@ -60,7 +60,7 @@ const TestimonialsSnippetSection: React.FC = () => {
               className="bg-white p-6 rounded-lg shadow-md border border-gray-200 flex flex-col items-center text-center"
             >
               <p className="text-gray-700 text-lg italic mb-4 line-clamp-4">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
               <h3 className="text-lg font-semibold text-gray-900">
                 {testimonial.clientName}

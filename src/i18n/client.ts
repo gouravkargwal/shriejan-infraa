@@ -18,15 +18,13 @@ import {
   fallbackLng,
 } from "./settings"; // Ensure all necessary imports are here
 
-// Initialize i18next singleton only once on the client side
 if (!i18next.isInitialized) {
   i18next
     .use(LanguageDetector)
     .use(initReactI18next)
     .use(
       resourcesToBackend(
-        (language, namespace) =>
-          import(`./locales/${language}/translation.json`)
+        (language) => import(`./locales/${language}/translation.json`)
       )
     )
     .init({
@@ -63,40 +61,23 @@ export function useTranslation(
   ns?: string | string[],
   options?: { keyPrefix?: string }
 ) {
-  // Call the original `react-i18next` useTranslation hook.
-  // This hook manages the `t` function and `i18n` instance,
-  // and crucially, it triggers component re-renders when i18n's state changes.
   const { t, i18n } = useTranslationOrg(ns || defaultNS, options);
 
-  // Effect to synchronize the i18n instance's language with the `lng` prop (from URL).
-  // This is vital when the URL changes (e.g., `/en/page` to `/hi/page`) via Next.js `Link`.
   useEffect(() => {
-    // Only change the language if the target `lng` is valid and different from the current resolved language.
-    // We removed the `ready` check here to allow `i18n.changeLanguage` to potentially run earlier,
-    // which can help with immediate UI updates.
     if (lng && i18n.resolvedLanguage !== lng) {
-      console.log(
-        `[i18n/client.ts useEffect] Changing language from '${i18n.resolvedLanguage}' to '${lng}' based on URL.`
-      );
       i18n.changeLanguage(lng);
     }
-  }, [lng, i18n]); // Dependencies: `lng` (from URL) and the `i18n` instance itself
+  }, [lng, i18n]);
 
-  // Effect to synchronize the i18next cookie with the resolved language.
-  // This ensures the cookie always reflects the language currently active in i18next,
-  // making future visits consistent.
   useEffect(() => {
     const i18nextCookie = getCookie(cookieName);
     if (i18nextCookie !== i18n.resolvedLanguage) {
-      console.log(
-        `[i18n/client.ts useEffect] Setting cookie from '${i18nextCookie}' to '${i18n.resolvedLanguage}'.`
-      );
       setCookie(cookieName, i18n.resolvedLanguage || "", {
         path: "/",
         expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
-      }); // Cookie lasts 1 year
+      });
     }
-  }, [i18n.resolvedLanguage]); // Dependencies: `i18n.resolvedLanguage` and `cookieName`
+  }, [i18n.resolvedLanguage]);
 
-  return { t, i18n }; // Return the `t` function and `i18n` instance
+  return { t, i18n };
 }

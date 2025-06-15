@@ -3,7 +3,7 @@ import { dir } from "i18next"; // Import dir for HTML dir attribute
 import { languages } from "../i18n/settings";
 
 export const metadata = {
-  title: "My Localized App",
+  title: "Shriejan Infraa",
   description: "A Next.js 14 i18n example",
 };
 

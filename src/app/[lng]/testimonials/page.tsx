@@ -117,7 +117,7 @@ const TestimonialsPage = ({ params: { lng } }: ClientPageProps) => {
                   )}
 
                   <p className="text-gray-700 text-base italic mb-4 flex-grow">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
 
                   {relatedProject && (
