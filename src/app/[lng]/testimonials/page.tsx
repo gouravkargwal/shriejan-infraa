@@ -6,9 +6,9 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Star, ChatCenteredText, MapPinLine } from "@phosphor-icons/react";
-import { ClientPageProps } from "@/types";
 import { testimonials } from "@/lib/testimonials";
 import { getProjectBySlug } from "@/lib/projectsData";
+import { useParams } from "next/navigation";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -30,7 +30,9 @@ const itemFallUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-const TestimonialsPage = ({ params: { lng } }: ClientPageProps) => {
+const TestimonialsPage = () => {
+  const params = useParams();
+  const lng = params.lng as string;
   const { t } = useTranslation(lng);
 
   return (

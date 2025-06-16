@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/i18n/client";
+import { useParams } from "next/navigation";
 
 const contactFormSchema = z.object({
   name: z.string().min(1, { message: "contact.form.validation.nameRequired" }),
@@ -28,7 +29,9 @@ const contactFormSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
-export default function ContactPage({ params: { lng } }) {
+export default function ContactPage() {
+  const params = useParams();
+  const lng = params.lng as string;
   const { t } = useTranslation(lng);
 
   const {

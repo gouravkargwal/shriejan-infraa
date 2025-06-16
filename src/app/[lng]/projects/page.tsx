@@ -10,8 +10,11 @@ import {
   kebabToCamelCase,
   projects,
 } from "@/lib/projectsData";
+import { useParams } from "next/navigation";
 
-const ProjectsOverviewPage = ({ params: { lng } }) => {
+const ProjectsOverviewPage = () => {
+  const params = useParams();
+  const lng = params.lng as string;
   const { t } = useTranslation(lng);
   const [activeFilter, setActiveFilter] = useState<string>("all");
 

@@ -87,7 +87,7 @@ const LanguageSwitcher: React.FC = () => {
           onClick={() => setShowDropdown(!showDropdown)}
         >
           <GlobeSimple size={20} className="text-gray-500" />
-          {currentLang.toUpperCase()}
+          {currentLang?.toUpperCase()}
           <motion.div
             animate={{ rotate: showDropdown ? 180 : 0 }}
             transition={{ duration: 0.2 }}

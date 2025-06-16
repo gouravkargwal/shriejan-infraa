@@ -5,9 +5,11 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { services } from "../../../lib/serviceData";
-import { ClientPageProps } from "@/types";
+import { useParams } from "next/navigation";
 
-const ServicesOverviewPage = ({ params: { lng } }: ClientPageProps) => {
+const ServicesOverviewPage = () => {
+  const params = useParams();
+  const lng = params.lng as string;
   const { t } = useTranslation(lng);
 
   const containerVariants = {

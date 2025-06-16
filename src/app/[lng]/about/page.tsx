@@ -8,8 +8,11 @@ import akshayHeadshot from "../../../../public/images/team/tea.jpg"; // Adjust p
 import ankitHeadshot from "../../../../public/images/team/tea.jpg"; // Adjust path as needed
 import vijayHeadshot from "../../../../public/images/team/tea.jpg"; // Adjust path as needed
 import { useTranslation } from "@/i18n/client";
+import { useParams } from "next/navigation";
 
-export default function AboutPage({ params: { lng } }) {
+export default function AboutPage() {
+  const params = useParams();
+  const lng = params.lng as string;
   const { t } = useTranslation(lng);
 
   // Framer Motion variants for staggered animations
