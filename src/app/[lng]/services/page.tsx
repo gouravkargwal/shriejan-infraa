@@ -74,7 +74,7 @@ const ServicesOverviewPage = () => {
                 {t(service.shortDescriptionKey)}
               </p>
               <Link
-                href={`/services/${service.slug}`}
+                href={`/${lng}/services/${service.slug}`}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-full shadow-md text-white bg-blue-600 hover:bg-blue-700 transition duration-300 transform hover:-translate-y-0.5"
               >
                 {t("common.learnMore")}
@@ -114,7 +114,7 @@ const ServicesOverviewPage = () => {
             {t("contact.description")}
           </p>
           <Link
-            href="/contact-us"
+            href={`/${lng}/contact`}
             className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-bold rounded-full shadow-lg text-white bg-green-600 hover:bg-green-700 transition duration-300 transform hover:-translate-y-1"
           >
             {t("common.getQuote")}

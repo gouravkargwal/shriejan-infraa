@@ -72,7 +72,7 @@ const ServicesOverviewSection: React.FC = () => {
                 {t(service.shortDescriptionKey)}
               </p>
               <Link
-                href={`/services/${service.slug}`}
+                href={`/${lng}/services/${service.slug}`}
                 className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200 inline-flex items-center"
               >
                 {t("common.learnMore")}
@@ -94,7 +94,7 @@ const ServicesOverviewSection: React.FC = () => {
         </motion.div>
         <motion.div variants={fadeIn} className="mt-12">
           <Link
-            href="/services"
+            href={`/${lng}/services`}
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:-translate-y-1"
           >
             {t("homepage.servicesOverview.viewAllServices")}

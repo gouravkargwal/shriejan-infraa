@@ -192,7 +192,7 @@ const ArchitectureServicePage: React.FC = () => {
             {t(service.ctaKey)}
           </h3>
           <Link
-            href="/contact"
+            href={`/${lng}/contact`}
             className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-bold rounded-full shadow-lg text-white bg-blue-600 hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1"
           >
             {t("common.getQuote")}

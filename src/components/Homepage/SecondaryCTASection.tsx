@@ -34,7 +34,7 @@ const SecondaryCTASection: React.FC = () => {
         </motion.p>
         <motion.div variants={fadeIn}>
           <Link
-            href="/contact"
+            href={`/${lng}/contact`}
             className="inline-block bg-white text-indigo-700 hover:bg-gray-100 font-bold py-4 px-10 rounded-full text-xl shadow-lg transition duration-300 transform hover:-translate-y-1"
           >
             {t("homepage.secondaryCta.cta")}

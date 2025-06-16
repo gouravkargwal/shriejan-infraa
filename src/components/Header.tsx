@@ -30,11 +30,10 @@ const Header = ({ params: { lng } }) => {
     setShowLanguageModal(false);
   };
 
-  // Navigation Links - Updated href for /about and /contact based on previous discussion
   const navLinks = [
     { href: `/${lng}`, text: t("common.home") },
-    { href: `/${lng}/about`, text: t("common.about") }, // Changed to /about-us
-    { href: `/${lng}/contact`, text: t("common.contact") }, // Changed to /contact-us
+    { href: `/${lng}/about`, text: t("common.about") },
+    { href: `/${lng}/contact`, text: t("common.contact") },
     { href: `/${lng}/services`, text: t("common.services") },
     { href: `/${lng}/testimonials`, text: t("common.testimonials") },
     { href: `/${lng}/projects`, text: t("common.projects") },
@@ -86,7 +85,7 @@ const Header = ({ params: { lng } }) => {
             </nav>
             <LanguageSwitcher />
             <Link
-              href="/get-quote"
+              href={`/${lng}/contact`}
               className="bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transform hover:-translate-y-0.5 transition duration-300 ease-in-out font-semibold text-sm"
             >
               {t("common.getQuote")}
@@ -96,7 +95,7 @@ const Header = ({ params: { lng } }) => {
           {/* Mobile elements: CTA button and Hamburger/Close button */}
           <div className="md:hidden flex items-center space-x-4">
             <Link
-              href="/get-quote"
+              href={`/${lng}/contact`}
               className="bg-blue-600 text-white px-3 py-2 rounded-full shadow-sm hover:bg-blue-700 transition duration-300 ease-in-out text-sm font-semibold"
             >
               {t("common.getQuote")}

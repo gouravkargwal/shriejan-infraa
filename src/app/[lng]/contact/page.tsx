@@ -423,8 +423,8 @@ export default function ContactPage() {
                   {t("contact.phoneLabel")}
                 </h2>
                 <p className="text-blue-600 text-lg font-semibold">
-                  <a href="tel:+919876543210" className="hover:underline">
-                    +91 98765 43210
+                  <a href="tel:+917023074548" className="hover:underline">
+                    +917023074548
                   </a>
                 </p>
               </div>

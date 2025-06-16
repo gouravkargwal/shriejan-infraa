@@ -284,7 +284,7 @@ const ProjectDetailClient: React.FC<ProjectDetailClientProps> = ({
               </h3>
               <div className="flex flex-col space-y-3">
                 <Link
-                  href="/contact"
+                  href={`/${lng}/contact`}
                   className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-full shadow-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 transform hover:-translate-y-1"
                 >
                   {t("projects.detail.discussSimilarProject")}
@@ -302,7 +302,7 @@ const ProjectDetailClient: React.FC<ProjectDetailClientProps> = ({
                   </svg>
                 </Link>
                 <Link
-                  href="/services"
+                  href={`/${lng}/services`}
                   className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-bold rounded-full shadow-sm text-gray-700 bg-white hover:bg-gray-100 transition duration-300 transform hover:-translate-y-0.5"
                 >
                   {t("projects.detail.viewAllServices")}

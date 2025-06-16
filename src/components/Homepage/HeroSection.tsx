@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <Link
-            href="/contact"
+            href={`/${lng}/contact`}
             className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg md:text-xl shadow-lg transition duration-300 transform hover:-translate-y-1"
           >
             {t("homepage.hero.cta")}

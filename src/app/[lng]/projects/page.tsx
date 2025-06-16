@@ -119,7 +119,10 @@ const ProjectsOverviewPage = () => {
                 transition={{ duration: 0.3 }}
                 className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden"
               >
-                <Link href={`/projects/${project.slug}`} className="block">
+                <Link
+                  href={`/${lng}/projects/${project.slug}`}
+                  className="block"
+                >
                   <div className="relative w-full h-56 bg-gray-200">
                     <Image
                       src={project.images[0].src}

@@ -74,7 +74,7 @@ const TestimonialsSnippetSection: React.FC = () => {
         </motion.div>
         <motion.div variants={fadeIn} className="mt-12">
           <Link
-            href="/testimonials"
+            href={`/${lng}/testimonials`}
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:-translate-y-1"
           >
             {t("homepage.testimonialsSnippet.viewAll")}
