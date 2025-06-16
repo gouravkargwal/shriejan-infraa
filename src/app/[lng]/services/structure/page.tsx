@@ -74,7 +74,7 @@ const StructureServicePage: React.FC = () => {
           className="bg-white p-6 md:p-10 rounded-xl shadow-lg mb-12 border border-gray-100"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            {t("services.common.aboutService", {
+            {t("common.aboutService", {
               service: t(service.titleKey),
             })}
           </h2>
@@ -90,7 +90,7 @@ const StructureServicePage: React.FC = () => {
           className="bg-white p-6 md:p-10 rounded-xl shadow-lg mb-12 border border-gray-100"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            {t("services.common.benefits")}
+            {t("common.benefits")}
           </h2>
           <motion.ul
             variants={listVariants}
@@ -129,7 +129,7 @@ const StructureServicePage: React.FC = () => {
           className="bg-white p-6 md:p-10 rounded-xl shadow-lg mb-12 border border-gray-100"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            {t("services.common.ourProcess")}
+            {t("common.ourProcess")}
           </h2>
           <ol className="relative border-l border-gray-200 ml-4 md:ml-6 space-y-8">
             {service.processStepsKeys.map((key, index) => (
@@ -156,7 +156,7 @@ const StructureServicePage: React.FC = () => {
                   </svg>
                 </span>
                 <h3 className="flex items-center mb-1 text-xl font-semibold text-gray-900">
-                  {t(`services.common.step`)}{" "}
+                  {t(`common.step`)}{" "}
                   <span className="ml-1 text-blue-600">{index + 1}:</span>
                 </h3>
                 <p className="text-lg font-normal text-gray-700">{t(key)}</p>
