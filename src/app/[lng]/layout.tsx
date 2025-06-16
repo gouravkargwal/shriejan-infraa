@@ -7,7 +7,14 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
-export default function RootLayout({ children, params: { lng } }) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { lng: string };
+}) {
+  const { lng } = params;
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />

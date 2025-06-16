@@ -10,9 +10,8 @@ import {
   kebabToCamelCase,
   projects,
 } from "@/lib/projectsData";
-import { ClientPageProps } from "@/types";
 
-const ProjectsOverviewPage = ({ params: { lng } }: ClientPageProps) => {
+const ProjectsOverviewPage = ({ params: { lng } }) => {
   const { t } = useTranslation(lng);
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
