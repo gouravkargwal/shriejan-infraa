@@ -4,7 +4,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Project, ProjectImage } from "../../lib/projectsData";
 import {
   CheckCircleIcon,
@@ -25,7 +25,7 @@ const ProjectDetailClient: React.FC<ProjectDetailClientProps> = ({
   const { t } = useTranslation();
 
   // Framer Motion variants (these remain the same)
-  const sectionVariants = {
+  const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -34,12 +34,12 @@ const ProjectDetailClient: React.FC<ProjectDetailClientProps> = ({
     },
   };
 
-  const listItemVariants = {
+  const listItemVariants: Variants = {
     hidden: { opacity: 0, x: -10 },
     visible: { opacity: 1, x: 0 },
   };
 
-  const imageGalleryVariants = {
+  const imageGalleryVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -49,7 +49,7 @@ const ProjectDetailClient: React.FC<ProjectDetailClientProps> = ({
     },
   };
 
-  const imageItemVariants = {
+  const imageItemVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
   };
