@@ -3,7 +3,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+// import * as z from "zod"; // REMOVE this import, as it's now in the shared file
+
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useTranslation } from "@/i18n/client";
 import { useParams } from "next/navigation";
@@ -11,49 +12,33 @@ import { sendContactEmail } from "@/app/actions/sendEmail";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const contactFormSchema = z.object({
-  name: z.string().min(1, { message: "contact.form.validation.nameRequired" }),
-  mobile: z
-    .string()
-    .min(1, { message: "contact.form.validation.mobileRequired" })
-    .regex(/^\d{10}$/, { message: "contact.form.validation.mobileInvalid" }),
-  email: z
-    .string()
-    .email({ message: "contact.form.validation.emailInvalid" })
-    .optional()
-    .or(z.literal("")),
-  category: z
-    .string()
-    .min(1, { message: "contact.form.validation.categoryRequired" }),
-  message: z
-    .string()
-    .min(1, { message: "contact.form.validation.messageRequired" }),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
+// --- IMPORT FROM SHARED FILE ---
+import { contactFormSchema, ContactFormData } from "@/types/contactForm"; // Adjust path if needed
+// --- END IMPORT ---
 
 export default function ContactPage() {
   const params = useParams();
   const lng = params.lng as string;
-  const { t } = useTranslation(lng);
+  const { t, isReady } = useTranslation(lng);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid }, // Destructure isValid from formState
+    formState: { errors, isSubmitting },
     reset,
     getValues,
-    trigger, // Import trigger for manual validation
+    trigger,
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
+    // Using the imported ContactFormData
+    resolver: zodResolver(contactFormSchema), // Using the imported contactFormSchema
     defaultValues: {
       name: "",
       mobile: "",
-      email: "",
+      email: "", // Default to empty string for optional email
       category: "",
       message: "",
     },
-    mode: "onBlur", // Optional: Validate on blur for better UX
+    mode: "onBlur",
   });
 
   const CATEGORIES = [
@@ -70,6 +55,8 @@ export default function ContactPage() {
     console.log("Form Data Submitted:", data);
 
     try {
+      // TypeScript should now be happy here because `data`
+      // is of type `ContactFormData` which matches the schema's requirements.
       const result = await sendContactEmail(data);
       if (result.success) {
         toast.success(t("contact.form.submissionSuccess"));
@@ -84,31 +71,31 @@ export default function ContactPage() {
   };
 
   const handleWhatsAppContact = async () => {
-    // Manually trigger validation for all fields
     const isFormValid = await trigger();
 
     if (!isFormValid) {
-      // If validation fails, react-hook-form will show errors on the fields.
-      // You might want an additional toast here to nudge the user to fill the form.
       toast.error(t("contact.form.validation.fillRequiredFields"));
       return;
     }
 
     const mobileNumber = "917023074548";
-
-    // Since the form is valid, get the values.
     const currentFormData = getValues();
+
+    const emailPart =
+      currentFormData.email && currentFormData.email !== ""
+        ? `Email: ${currentFormData.email}\n`
+        : "";
 
     const prefilledMessage = encodeURIComponent(
       `Hello Shriejan Infraa, I'm interested in your services. \n` +
-        `Name: ${currentFormData.name || t("common.notProvided")}\n` +
-        `Mobile: ${currentFormData.mobile || t("common.notProvided")}\n` +
+        `Name: ${currentFormData.name}\n` +
+        `Mobile: ${currentFormData.mobile}\n` +
         `Category: ${t(
           currentFormData.category
             ? `contact.categories.${currentFormData.category}`
             : "contact.categories.default"
         )}\n` +
-        (currentFormData.email ? `Email: ${currentFormData.email}\n` : "") +
+        emailPart +
         (currentFormData.message
           ? `\nMessage: ${currentFormData.message}`
           : "") +
@@ -118,7 +105,6 @@ export default function ContactPage() {
     window.open(whatsappUrl, "_blank");
   };
 
-  // Framer Motion variants for error messages
   const errorVariants: Variants = {
     hidden: { opacity: 0, y: -5 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
@@ -136,6 +122,10 @@ export default function ContactPage() {
       },
     },
   };
+
+  if (!isReady) {
+    return null;
+  }
 
   return (
     <div className="bg-gray-50 font-inter min-h-screen pt-[var(--header-height)] pb-16">
@@ -363,7 +353,7 @@ export default function ContactPage() {
               {/* Dual CTA Buttons */}
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
                 <button
-                  type="button" // Important: keep this as type="button"
+                  type="button"
                   onClick={handleWhatsAppContact}
                   className="flex-1 flex items-center justify-center bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300 font-semibold transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isSubmitting}

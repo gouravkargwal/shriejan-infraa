@@ -1,14 +1,7 @@
 "use server";
 
+import { ContactFormData } from "@/types/contactForm";
 import nodemailer from "nodemailer";
-
-interface ContactFormData {
-  name: string;
-  mobile: string;
-  email?: string; // Optional email
-  category: string;
-  message: string;
-}
 
 const transporter = nodemailer.createTransport({
   host: process.env.GMAIL_SMTP_HOST,
