@@ -1,12 +1,15 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n/client";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 const SecondaryCTASection: React.FC = () => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
 
   return (
     <motion.section

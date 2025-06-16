@@ -1,15 +1,17 @@
 "use client";
 
 import React from "react";
-import { useTranslation } from "react-i18next";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { services } from "@/lib/serviceData";
+import { useTranslation } from "@/i18n/client";
 
 const SupervisionServicePage: React.FC = () => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
   const service = services.find((s) => s.slug === "supervision");
 
   if (!service) {

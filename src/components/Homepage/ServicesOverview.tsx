@@ -1,8 +1,9 @@
-import { useTranslation } from "react-i18next";
 import { services } from "../../lib/serviceData";
 import { motion, Variants } from "framer-motion";
 import React from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/i18n/client";
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -21,7 +22,9 @@ const itemFallUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 const ServicesOverviewSection: React.FC = () => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
 
   // Select first 4 services or less if fewer exist
   const displayedServices = services.slice(0, 4);

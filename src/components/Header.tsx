@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useTranslation } from "react-i18next";
 import { usePathname } from "next/navigation";
 import LanguageSwitcher from "./Langauge/LanguageSwitcher";
 import LanguageSelectionModal from "./Langauge/LanguageModel";
+import { useTranslation } from "@/i18n/client";
 
 const Header = ({ params: { lng } }) => {
   const [isOpen, setIsOpen] = useState(false);

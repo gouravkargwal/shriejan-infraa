@@ -2,10 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { useTranslation } from "react-i18next";
 import { motion, Variants } from "framer-motion";
 import { services } from "../../../lib/serviceData";
 import { useParams } from "next/navigation";
+import { useTranslation } from "@/i18n/client";
 
 const ServicesOverviewPage = () => {
   const params = useParams();

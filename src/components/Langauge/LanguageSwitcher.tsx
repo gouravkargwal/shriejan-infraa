@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { GlobeSimple, CaretDown } from "@phosphor-icons/react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { languages } from "../../i18n/settings"; // Access supported languages from settings
-import { useTranslation } from "../../i18n/client";
+import { useRouter, usePathname } from "next/navigation";
+import { useTranslation } from "@/i18n/client";
+import { languages } from "@/i18n/settings";
 
 const dropdownVariants: Variants = {
   hidden: { opacity: 0, y: -10, scale: 0.95 },
@@ -26,27 +25,35 @@ const dropdownVariants: Variants = {
 
 const LanguageSwitcher: React.FC = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
-  const currentUrlLng = pathname.split("/")[1];
-  const { i18n, t } = useTranslation(currentUrlLng, "common");
+  // Safely determine currentUrlLng with a fallback
+  const currentUrlLng = pathname.split("/")[1] || "en"; // Use fallbackLng if path is "/"
+
+  // Use the derived language for translation
+  const { i18n, t } = useTranslation(currentUrlLng, "footer");
 
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentLang = i18n.language;
+  // Use i18n.resolvedLanguage for the most accurate current language
+  const currentLang = i18n.resolvedLanguage;
 
+  // Sort the available languages
   const sortedAvailableLanguages = [...languages]
-    .filter(
-      (lang) => lang !== "cimode" // Filter out cimode
-    )
+    .filter((lang) => lang !== "cimode") // Filter out 'cimode'
     .sort((a, b) => {
       if (a === "en") return -1; // 'en' comes first
       if (b === "en") return 1; // 'en' comes first
-      return a.localeCompare(b);
+      return a.localeCompare(b); // Sort alphabetically
     });
 
+  // Get the path for the new language
   const getPathForLang = (targetLang: string) => {
     const segments = pathname.split("/");
+    if (segments.length <= 1 || segments[1] === "") {
+      return `/${targetLang}${pathname}`; // Append to current path, e.g., /en/
+    }
     segments[1] = targetLang;
     return segments.join("/");
   };
@@ -71,6 +78,12 @@ const LanguageSwitcher: React.FC = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showDropdown]);
+
+  const handleLanguageChange = (lang: string) => {
+    const newPath = getPathForLang(lang);
+    setShowDropdown(false);
+    router.push(newPath); // Navigate to the new language URL
+  };
 
   return (
     <div className="relative inline-block text-left z-20" ref={dropdownRef}>
@@ -113,27 +126,22 @@ const LanguageSwitcher: React.FC = () => {
           >
             <div className="py-1" role="none">
               {/* Use the sorted array here */}
-              {sortedAvailableLanguages.map(
-                (
-                  lang // <<< Changed to sortedAvailableLanguages
-                ) => (
-                  <Link
-                    key={lang}
-                    href={getPathForLang(lang)}
-                    onClick={() => setShowDropdown(false)}
-                    className={`block w-full text-left px-4 py-2 text-base font-medium
+              {sortedAvailableLanguages.map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => handleLanguageChange(lang)} // Handle language change on button click
+                  className={`block w-full text-left px-4 py-2 text-base font-medium
                     ${
                       currentLang === lang
                         ? "bg-indigo-50 text-indigo-700"
                         : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     }
                     transition-colors duration-150 ease-in-out`}
-                    role="menuitem"
-                  >
-                    {t(`common.languages.${lang}`)}
-                  </Link>
-                )
-              )}
+                  role="menuitem"
+                >
+                  {t(`common.languages.${lang}`)}
+                </button>
+              ))}
             </div>
           </motion.div>
         )}

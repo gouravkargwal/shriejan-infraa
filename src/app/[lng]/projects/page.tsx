@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
 import { motion, Variants } from "framer-motion";
 import {
   getProjectCategories,
@@ -11,6 +10,7 @@ import {
   projects,
 } from "@/lib/projectsData";
 import { useParams } from "next/navigation";
+import { useTranslation } from "@/i18n/client";
 
 const ProjectsOverviewPage = () => {
   const params = useParams();

@@ -1,8 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/i18n/client";
 import { projects } from "../../lib/projectsData";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -21,7 +22,9 @@ const itemFallUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 const FeaturedProjectsSection: React.FC = () => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
 
   // Curated selection of 3 key projects
   // Ensure these slugs exist in lib/projectsData.ts

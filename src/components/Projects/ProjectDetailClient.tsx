@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
@@ -14,6 +13,8 @@ import {
   TargetIcon,
   UsersIcon,
 } from "@phosphor-icons/react";
+import { useTranslation } from "@/i18n/client";
+import { useParams } from "next/navigation";
 
 interface ProjectDetailClientProps {
   project: Project; // Receive project data as a prop
@@ -22,7 +23,9 @@ interface ProjectDetailClientProps {
 const ProjectDetailClient: React.FC<ProjectDetailClientProps> = ({
   project,
 }) => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
 
   // Framer Motion variants (these remain the same)
   const sectionVariants: Variants = {

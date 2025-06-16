@@ -1,10 +1,11 @@
+import { useTranslation } from "@/i18n/client";
 import {
   DiamondIcon,
   HandshakeIcon,
   MapPinLineIcon,
 } from "@phosphor-icons/react";
-import { useTranslation } from "react-i18next";
 import { motion, Variants } from "framer-motion";
+import { useParams } from "next/navigation";
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -24,7 +25,9 @@ const itemFallUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 const WhyChooseUsSection: React.FC = () => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
 
   const differentiators = [
     {

@@ -1,7 +1,8 @@
-import { useTranslation } from "react-i18next";
 import { motion, Variants } from "framer-motion";
 import { getTestimonialsForHomepage } from "../../lib/testimonialsData";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/i18n/client";
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -20,7 +21,9 @@ const itemFallUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 const TestimonialsSnippetSection: React.FC = () => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
 
   // Get 3 random testimonials (or fewer if less than 3 exist)
   const testimonialSnippets = getTestimonialsForHomepage(t);

@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "@/i18n/client";
+import { useParams } from "next/navigation";
 
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -12,7 +13,9 @@ const fadeIn: Variants = {
 };
 
 const HeroSection: React.FC = () => {
-  const { t } = useTranslation();
+  const params = useParams();
+  const lng = params.lng as string;
+  const { t } = useTranslation(lng);
 
   return (
     <motion.section
