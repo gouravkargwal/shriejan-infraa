@@ -26,15 +26,20 @@ const LanguageSelectionModal: React.FC<LanguageSelectionModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900 bg-opacity-70 backdrop-blur-sm p-4">
-      <div className="bg-white rounded-lg shadow-xl p-6 md:p-8 w-full max-w-md text-center transform scale-95 animate-scale-in">
+    // Overlay: Fixed, covers screen, centers content
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900 bg-opacity-70 backdrop-blur-sm p-4 overflow-y-auto">
+      {" "}
+      {/* Added p-4 and overflow-y-auto */}
+      {/* Modal Content: White box, max-width, auto margins for centering */}
+      <div className="relative bg-white rounded-lg shadow-xl p-6 md:p-8 w-full max-w-xs sm:max-w-md mx-auto my-auto transform scale-95 animate-scale-in">
+        {" "}
+        {/* Changed max-w-sm to max-w-xs for smaller screens, added my-auto */}
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 font-inter">
           {t("languageModal.selectLanguage")}
         </h2>
         <p className="text-gray-700 mb-6 font-inter">
           {t("languageModal.welcomeMessage")}
         </p>
-
         <div className="mb-6">
           <label htmlFor="language-select" className="sr-only">
             {t("languageModal.chooseLangPrompt")}
@@ -45,6 +50,7 @@ const LanguageSelectionModal: React.FC<LanguageSelectionModalProps> = ({
             value={selectedLang}
             onChange={(e) => setSelectedLang(e.target.value)}
           >
+            {/* Ensure language names are not excessively long */}
             {i18n.languages.map((lang) => (
               <option key={lang} value={lang}>
                 {t(`languages.${lang}`)}
@@ -52,7 +58,6 @@ const LanguageSelectionModal: React.FC<LanguageSelectionModalProps> = ({
             ))}
           </select>
         </div>
-
         <button
           onClick={handleSavePreference}
           className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transform hover:-translate-y-0.5 transition duration-300 ease-in-out text-lg font-semibold font-inter"

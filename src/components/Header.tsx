@@ -158,8 +158,8 @@ const Header = ({ params: { lng } }) => {
               {link.text}
             </Link>
           ))}
-          {/* Language Switcher inside mobile drawer */}
-          <div className="mt-6">
+
+          <div className="mt-6 w-full flex justify-center">
             <LanguageSwitcher />
           </div>
         </div>
