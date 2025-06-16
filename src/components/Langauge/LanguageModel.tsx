@@ -1,4 +1,3 @@
-// components/LanguageSelectionModal.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -6,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 interface LanguageSelectionModalProps {
   isVisible: boolean;
-  onLanguageSelected: () => void; // Callback when language is selected and modal should close
+  onLanguageSelected: () => void;
 }
 
 const LanguageSelectionModal: React.FC<LanguageSelectionModalProps> = ({

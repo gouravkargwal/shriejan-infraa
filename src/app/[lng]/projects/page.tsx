@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
   getProjectCategories,
   kebabToCamelCase,
@@ -27,7 +27,7 @@ const ProjectsOverviewPage = () => {
     return project.categories.includes(activeFilter);
   });
 
-  const sectionVariants = {
+  const sectionVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
@@ -36,7 +36,7 @@ const ProjectsOverviewPage = () => {
     },
   };
 
-  const galleryContainerVariants = {
+  const galleryContainerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -46,7 +46,7 @@ const ProjectsOverviewPage = () => {
     },
   };
 
-  const projectCardVariants = {
+  const projectCardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

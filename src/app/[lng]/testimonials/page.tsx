@@ -4,18 +4,18 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Star, ChatCenteredText, MapPinLine } from "@phosphor-icons/react";
 import { testimonials } from "@/lib/testimonials";
 import { getProjectBySlug } from "@/lib/projectsData";
 import { useParams } from "next/navigation";
 
-const fadeIn = {
+const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -25,7 +25,7 @@ const staggerContainer = {
   },
 };
 
-const itemFallUp = {
+const itemFallUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };

@@ -1,24 +1,34 @@
-import { notFound } from "next/navigation";
+"use client";
+import { useEffect, useState } from "react";
 import ProjectDetailClient from "@/components/Projects/ProjectDetailClient";
-import { getProjectBySlug, projects } from "@/lib/projectsData";
+import { getProjectBySlug } from "@/lib/projectsData";
+import { notFound, useParams } from "next/navigation";
 
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
+const ProjectDetailPage = () => {
+  const params = useParams();
+  const { slug } = params;
 
-interface ProjectDetailPageProps {
-  params: {
-    slug: string;
-  };
-}
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
-  const project = getProjectBySlug(params.slug);
+  useEffect(() => {
+    if (slug) {
+      const fetchedProject = getProjectBySlug(slug as string);
+      if (fetchedProject) {
+        setProject(fetchedProject);
+      } else {
+        notFound(); // If no project is found, show a 404 page
+      }
+      setLoading(false);
+    }
+  }, [slug]); // This effect will run when the `slug` changes
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!project) {
-    notFound();
+    return <div>No project found</div>;
   }
 
   return <ProjectDetailClient project={project} />;

@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { GlobeSimple, CaretDown } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { languages } from "../../i18n/settings"; // Access supported languages from settings
 import { useTranslation } from "../../i18n/client";
 
-const dropdownVariants = {
+const dropdownVariants: Variants = {
   hidden: { opacity: 0, y: -10, scale: 0.95 },
   visible: {
     opacity: 1,

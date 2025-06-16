@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { services } from "../../../lib/serviceData";
 import { useParams } from "next/navigation";
 
@@ -12,7 +12,7 @@ const ServicesOverviewPage = () => {
   const lng = params.lng as string;
   const { t } = useTranslation(lng);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -22,7 +22,7 @@ const ServicesOverviewPage = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -66,7 +66,7 @@ const ServicesOverviewPage = () => {
               transition={{ duration: 0.3 }}
               className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center text-center"
             >
-              {service.icon} {/* Render the SVG icon component */}
+              <service.icon />
               <h2 className="text-2xl font-bold text-gray-900 mb-3">
                 {t(service.titleKey)}
               </h2>

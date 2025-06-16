@@ -4,12 +4,12 @@ import {
   MapPinLineIcon,
 } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-const fadeIn = {
+import { motion, Variants } from "framer-motion";
+const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -19,7 +19,7 @@ const staggerContainer = {
   },
 };
 
-const itemFallUp = {
+const itemFallUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };

@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useTranslation } from "@/i18n/client";
 import { useParams } from "next/navigation";
 
@@ -101,19 +101,21 @@ export default function ContactPage() {
   };
 
   // Framer Motion variants for error messages
-  const errorVariants = {
+  const errorVariants: Variants = {
     hidden: { opacity: 0, y: -5 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
     exit: { opacity: 0, y: -5, transition: { duration: 0.15 } },
   };
 
-  // Framer Motion variants for section entrance (similar to other pages)
-  const sectionVariants = {
+  const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut", // Changed 'string' to a valid Framer Motion Easing type
+      },
     },
   };
 

@@ -1,4 +1,3 @@
-// src/app/services/architecture/page.tsx
 "use client";
 
 import React from "react";
@@ -6,12 +5,11 @@ import { useTranslation } from "react-i18next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { services } from "../../../../lib/serviceData";
+import { motion, Variants } from "framer-motion";
+import { services } from "@/lib/serviceData";
 
 const ArchitectureServicePage: React.FC = () => {
   const { t } = useTranslation();
-  // Directly get the architecture service data
   const service = services.find((s) => s.slug === "architecture");
 
   if (!service) {
@@ -19,7 +17,7 @@ const ArchitectureServicePage: React.FC = () => {
   }
 
   // Framer Motion variants (same as before)
-  const sectionVariants = {
+  const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
@@ -28,7 +26,7 @@ const ArchitectureServicePage: React.FC = () => {
     },
   };
 
-  const listVariants = {
+  const listVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -38,7 +36,7 @@ const ArchitectureServicePage: React.FC = () => {
     },
   };
 
-  const listItemVariants = {
+  const listItemVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 },
   };

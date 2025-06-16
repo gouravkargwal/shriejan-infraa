@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { services } from "../../lib/serviceData";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import React from "react";
 import Link from "next/link";
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -12,11 +12,11 @@ const staggerContainer = {
     },
   },
 };
-const fadeIn = {
+const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-const itemFallUp = {
+const itemFallUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
@@ -58,10 +58,10 @@ const ServicesOverviewSection: React.FC = () => {
               variants={itemFallUp}
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200"
             >
-              {React.cloneElement(service.icon, {
-                className: "text-indigo-600 mb-4 mx-auto",
-                size: 48,
-              })}
+              <service.icon
+                className="text-indigo-600 mb-4 mx-auto"
+                size={48}
+              />
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 {t(service.titleKey)}
               </h3>

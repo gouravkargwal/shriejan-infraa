@@ -1,13 +1,12 @@
-// src/components/Homepage/HeroSection.tsx (or app/page.tsx if HeroSection is inline)
 "use client";
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const fadeIn = {
+const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
@@ -22,10 +21,9 @@ const HeroSection: React.FC = () => {
       variants={fadeIn}
       className="relative w-full min-h-screen h-[calc(100vh-var(--header-height))] flex items-center justify-center text-white overflow-hidden"
     >
-      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
-          src="/videos/timelapse.mp4" // Path to your video file
+          src="/videos/timelapse.mp4"
           autoPlay
           loop
           muted
@@ -35,7 +33,7 @@ const HeroSection: React.FC = () => {
           aria-label="Background video showcasing construction timelapse"
         >
           <Image
-            src="/images/hero-bg.jpg" // Fallback image if video fails
+            src="/images/hero-bg.jpg"
             alt="Shriejan Infraa - Building Visions"
             layout="fill"
             objectFit="cover"

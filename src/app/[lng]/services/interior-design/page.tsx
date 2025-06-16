@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { services } from "../../../../lib/serviceData";
+import { motion, Variants } from "framer-motion";
+import { services } from "@/lib/serviceData";
 
 const InteriorDesignServicePage: React.FC = () => {
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ const InteriorDesignServicePage: React.FC = () => {
     notFound();
   }
 
-  const sectionVariants = {
+  const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
@@ -24,11 +24,11 @@ const InteriorDesignServicePage: React.FC = () => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
-  const listVariants = {
+  const listVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
-  const listItemVariants = {
+  const listItemVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 },
   };

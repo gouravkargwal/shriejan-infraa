@@ -1,11 +1,17 @@
-// lib/servicesData.ts
 import React from "react";
+
+// 1. Define the props interface for your SVG icons
+export interface SvgIconProps extends React.SVGProps<SVGSVGElement> {
+  className?: string;
+  size?: number; // Assuming 'size' is a number prop
+}
 
 // Define the interface for a single service
 export interface Service {
   id: string; // Unique identifier
   slug: string; // Used for URL path (e.g., /services/architecture)
-  icon: React.ReactNode; // SVG icon component
+  // 2. Change icon type to accept a React.ElementType that expects SvgIconProps
+  icon: React.ElementType<SvgIconProps>;
   titleKey: string; // i18n key for the service title
   shortDescriptionKey: string; // i18n key for brief overview description
   longDescriptionKey: string; // i18n key for detailed description on service page
@@ -16,14 +22,18 @@ export interface Service {
 }
 
 // Placeholder SVG Icons (Replace with proper icons like Heroicons or Font Awesome)
-const ArchitectureIcon = () => (
+// 3. Update your icon components to accept SvgIconProps
+const ArchitectureIcon: React.FC<SvgIconProps> = ({ className, size }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-12 h-12 text-blue-600 mb-4"
+    // Apply className directly
+    className={`${className || ""} ${
+      size ? `w-${size / 4} h-${size / 4}` : "w-12 h-12"
+    } text-blue-600 mb-4`} // Example: size 48 becomes w-12 h-12
   >
     <path
       strokeLinecap="round"
@@ -33,14 +43,16 @@ const ArchitectureIcon = () => (
   </svg>
 );
 
-const StructureIcon = () => (
+const StructureIcon: React.FC<SvgIconProps> = ({ className, size }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-12 h-12 text-blue-600 mb-4"
+    className={`${className || ""} ${
+      size ? `w-${size / 4} h-${size / 4}` : "w-12 h-12"
+    } text-blue-600 mb-4`}
   >
     <path
       strokeLinecap="round"
@@ -50,14 +62,16 @@ const StructureIcon = () => (
   </svg>
 );
 
-const InteriorDesignIcon = () => (
+const InteriorDesignIcon: React.FC<SvgIconProps> = ({ className, size }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-12 h-12 text-blue-600 mb-4"
+    className={`${className || ""} ${
+      size ? `w-${size / 4} h-${size / 4}` : "w-12 h-12"
+    } text-blue-600 mb-4`}
   >
     <path
       strokeLinecap="round"
@@ -67,14 +81,16 @@ const InteriorDesignIcon = () => (
   </svg>
 );
 
-const ConstructionIcon = () => (
+const ConstructionIcon: React.FC<SvgIconProps> = ({ className, size }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-12 h-12 text-blue-600 mb-4"
+    className={`${className || ""} ${
+      size ? `w-${size / 4} h-${size / 4}` : "w-12 h-12"
+    } text-blue-600 mb-4`}
   >
     <path
       strokeLinecap="round"
@@ -84,14 +100,16 @@ const ConstructionIcon = () => (
   </svg>
 );
 
-const SupervisionIcon = () => (
+const SupervisionIcon: React.FC<SvgIconProps> = ({ className, size }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-12 h-12 text-blue-600 mb-4"
+    className={`${className || ""} ${
+      size ? `w-${size / 4} h-${size / 4}` : "w-12 h-12"
+    } text-blue-600 mb-4`}
   >
     <path
       strokeLinecap="round"
@@ -105,7 +123,7 @@ export const services: Service[] = [
   {
     id: "s01",
     slug: "architecture",
-    icon: <ArchitectureIcon />,
+    icon: ArchitectureIcon, // Pass the component reference, not an instance
     titleKey: "services.architecture.title",
     shortDescriptionKey: "services.architecture.shortDescription",
     longDescriptionKey: "services.architecture.longDescription",
@@ -127,7 +145,7 @@ export const services: Service[] = [
   {
     id: "s02",
     slug: "structure",
-    icon: <StructureIcon />,
+    icon: StructureIcon, // Pass the component reference
     titleKey: "services.structure.title",
     shortDescriptionKey: "services.structure.shortDescription",
     longDescriptionKey: "services.structure.longDescription",
@@ -147,7 +165,7 @@ export const services: Service[] = [
   {
     id: "s03",
     slug: "interior-design", // Use kebab-case for slugs
-    icon: <InteriorDesignIcon />,
+    icon: InteriorDesignIcon, // Pass the component reference
     titleKey: "services.interiorDesign.title",
     shortDescriptionKey: "services.interiorDesign.shortDescription",
     longDescriptionKey: "services.interiorDesign.longDescription",
@@ -169,7 +187,7 @@ export const services: Service[] = [
   {
     id: "s04",
     slug: "construction",
-    icon: <ConstructionIcon />,
+    icon: ConstructionIcon, // Pass the component reference
     titleKey: "services.construction.title",
     shortDescriptionKey: "services.construction.shortDescription",
     longDescriptionKey: "services.construction.longDescription",
@@ -193,7 +211,7 @@ export const services: Service[] = [
   {
     id: "s05",
     slug: "supervision",
-    icon: <SupervisionIcon />,
+    icon: SupervisionIcon, // Pass the component reference
     titleKey: "services.supervision.title",
     shortDescriptionKey: "services.supervision.shortDescription",
     longDescriptionKey: "services.supervision.longDescription",
