@@ -7,6 +7,9 @@ import * as z from "zod";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useTranslation } from "@/i18n/client";
 import { useParams } from "next/navigation";
+import { sendContactEmail } from "@/app/actions/sendEmail";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const contactFormSchema = z.object({
   name: z.string().min(1, { message: "contact.form.validation.nameRequired" }),
@@ -18,7 +21,7 @@ const contactFormSchema = z.object({
     .string()
     .email({ message: "contact.form.validation.emailInvalid" })
     .optional()
-    .or(z.literal("")), // Allows empty string as valid for optional email
+    .or(z.literal("")),
   category: z
     .string()
     .min(1, { message: "contact.form.validation.categoryRequired" }),
@@ -37,9 +40,10 @@ export default function ContactPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid }, // Destructure isValid from formState
     reset,
     getValues,
+    trigger, // Import trigger for manual validation
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -49,6 +53,7 @@ export default function ContactPage() {
       category: "",
       message: "",
     },
+    mode: "onBlur", // Optional: Validate on blur for better UX
   });
 
   const CATEGORIES = [
@@ -64,23 +69,36 @@ export default function ContactPage() {
   const onSubmit = async (data: ContactFormData) => {
     console.log("Form Data Submitted:", data);
 
-    // Simulate API call
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate network delay
-      alert(t("contact.form.submissionSuccess")); // Use translation for alert
-      reset(); // Reset form fields on success
+      const result = await sendContactEmail(data);
+      if (result.success) {
+        toast.success(t("contact.form.submissionSuccess"));
+        reset();
+      } else {
+        toast.error(t("contact.form.submissionError"));
+      }
     } catch (error) {
       console.error("Submission error:", error);
-      alert(t("contact.form.submissionError")); // Use translation for alert
+      toast.error(t("contact.form.submissionError"));
     }
   };
 
-  const handleWhatsAppContact = () => {
-    const mobileNumber = "919876543210"; // Example for India: 91XXXXXXXXXX
+  const handleWhatsAppContact = async () => {
+    // Manually trigger validation for all fields
+    const isFormValid = await trigger();
 
-    const currentFormData = getValues(); // Get current form values without validation
+    if (!isFormValid) {
+      // If validation fails, react-hook-form will show errors on the fields.
+      // You might want an additional toast here to nudge the user to fill the form.
+      toast.error(t("contact.form.validation.fillRequiredFields"));
+      return;
+    }
 
-    // Construct a pre-filled message based on available form data
+    const mobileNumber = "917023074548";
+
+    // Since the form is valid, get the values.
+    const currentFormData = getValues();
+
     const prefilledMessage = encodeURIComponent(
       `Hello Shriejan Infraa, I'm interested in your services. \n` +
         `Name: ${currentFormData.name || t("common.notProvided")}\n` +
@@ -114,13 +132,24 @@ export default function ContactPage() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeInOut", // Changed 'string' to a valid Framer Motion Easing type
+        ease: "easeInOut",
       },
     },
   };
 
   return (
     <div className="bg-gray-50 font-inter min-h-screen pt-[var(--header-height)] pb-16">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="container mx-auto p-4 md:p-8 lg:p-12">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -137,7 +166,6 @@ export default function ContactPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
-          {/* Left Column: Contact Form */}
           <motion.div
             variants={sectionVariants}
             initial="hidden"
@@ -192,7 +220,7 @@ export default function ContactPage() {
                   <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="tel" // Use type="tel" for mobile numbers
+                  type="tel"
                   id="mobile"
                   {...register("mobile")}
                   placeholder={t("contact.form.mobilePlaceholder")}
@@ -335,7 +363,7 @@ export default function ContactPage() {
               {/* Dual CTA Buttons */}
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
                 <button
-                  type="button"
+                  type="button" // Important: keep this as type="button"
                   onClick={handleWhatsAppContact}
                   className="flex-1 flex items-center justify-center bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300 font-semibold transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isSubmitting}

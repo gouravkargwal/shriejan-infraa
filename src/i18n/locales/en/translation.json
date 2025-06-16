@@ -57,8 +57,11 @@
         "mobileInvalid": "Please enter a valid 10-digit mobile number.",
         "categoryRequired": "Please select a category.",
         "messageRequired": "Message is required.",
-        "emailInvalid": "Please enter a valid email address."
-      }
+        "emailInvalid": "Please enter a valid email address.",
+        "fillRequiredFields": "Please fill in all required fields to proceed."
+      },
+      "submissionSuccess": "Your message has been sent successfully! We will get back to you shortly.",
+      "submissionError": "Failed to send your message. Please try again or contact us directly."
     },
     "categories": {
       "default": "Select a category",
