@@ -14,7 +14,6 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendContactEmail(formData: ContactFormData) {
-  // Basic validation (though Zod handles this on the client, server-side validation is good practice)
   if (
     !formData.name ||
     !formData.mobile ||
@@ -27,7 +26,7 @@ export async function sendContactEmail(formData: ContactFormData) {
   try {
     const info = await transporter.sendMail({
       from: process.env.GMAIL_FROM_EMAIL,
-      to: "gouravkargwalstore@gmail.com",
+      to: "SHRIEJANINFRAA@GMAIL.COM",
       subject: `New Inquiry from ${formData.name} - ${formData.category}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -57,7 +56,7 @@ export async function sendContactEmail(formData: ContactFormData) {
         Category: ${formData.category}
         Message:
         ${formData.message}
-      `, // Plain text fallback
+      `,
     });
 
     console.log("Message sent: %s", info.messageId);

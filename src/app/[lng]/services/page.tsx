@@ -6,6 +6,7 @@ import { motion, Variants } from "framer-motion";
 import { services } from "../../../lib/serviceData";
 import { useParams } from "next/navigation";
 import { useTranslation } from "@/i18n/client";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const ServicesOverviewPage = () => {
   const params = useParams();
@@ -66,7 +67,11 @@ const ServicesOverviewPage = () => {
               transition={{ duration: 0.3 }}
               className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center text-center"
             >
-              <service.icon />
+              <service.icon
+                className="text-blue-600 mb-4"
+                width={32}
+                height={32}
+              />
               <h2 className="text-2xl font-bold text-gray-900 mb-3">
                 {t(service.titleKey)}
               </h2>
@@ -78,23 +83,7 @@ const ServicesOverviewPage = () => {
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-full shadow-md text-white bg-blue-600 hover:bg-blue-700 transition duration-300 transform hover:-translate-y-0.5"
               >
                 {t("common.learnMore")}
-                <svg
-                  className="ml-2 -mr-1 w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  ></path>
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+                <ArrowRightIcon className="ml-2 -mr-1 w-4 h-4" />
               </Link>
             </motion.div>
           ))}

@@ -78,7 +78,7 @@ export default function ContactPage() {
       return;
     }
 
-    const mobileNumber = "917023074548";
+    const mobileNumber = "918890796949";
     const currentFormData = getValues();
 
     const emailPart =
@@ -423,8 +423,8 @@ export default function ContactPage() {
                   {t("contact.phoneLabel")}
                 </h2>
                 <p className="text-blue-600 text-lg font-semibold">
-                  <a href="tel:+917023074548" className="hover:underline">
-                    +917023074548
+                  <a href="tel:+918890796949" className="hover:underline">
+                    +918890796949
                   </a>
                 </p>
               </div>
@@ -434,10 +434,10 @@ export default function ContactPage() {
                 </h2>
                 <p className="text-blue-600 text-lg font-semibold">
                   <a
-                    href="mailto:info@shriejaninfraa.com"
+                    href="mailto:SHRIEJANINFRAA@GMAIL.COM"
                     className="hover:underline"
                   >
-                    info@shriejaninfraa.com
+                    SHRIEJANINFRAA@GMAIL.COM
                   </a>
                 </p>
               </div>

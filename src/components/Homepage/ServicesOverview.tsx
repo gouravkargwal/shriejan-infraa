@@ -63,7 +63,8 @@ const ServicesOverviewSection: React.FC = () => {
             >
               <service.icon
                 className="text-indigo-600 mb-4 mx-auto"
-                size={48}
+                width={48}
+                height={48}
               />
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 {t(service.titleKey)}

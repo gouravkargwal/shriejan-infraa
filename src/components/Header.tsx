@@ -86,6 +86,7 @@ const Header = ({ params: { lng } }) => {
             <LanguageSwitcher />
             <Link
               href={`/${lng}/contact`}
+              onClick={() => setIsOpen(false)}
               className="bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transform hover:-translate-y-0.5 transition duration-300 ease-in-out font-semibold text-sm"
             >
               {t("common.getQuote")}
@@ -96,6 +97,7 @@ const Header = ({ params: { lng } }) => {
           <div className="md:hidden flex items-center space-x-4">
             <Link
               href={`/${lng}/contact`}
+              onClick={() => setIsOpen(false)}
               className="bg-blue-600 text-white px-3 py-2 rounded-full shadow-sm hover:bg-blue-700 transition duration-300 ease-in-out text-sm font-semibold"
             >
               {t("common.getQuote")}
